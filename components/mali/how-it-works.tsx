@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Download, Store, TrendingUp } from "lucide-react"
 import { IPhoneMockup } from "@/components/mali/iphone-mockup"
 
@@ -31,16 +31,91 @@ const steps = [
   },
 ]
 
+function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
+  const [hovered, setHovered] = useState(false)
+  const Icon = step.icon
+
+  return (
+    <div
+      className="reveal relative flex flex-col items-center text-center gap-5 cursor-default"
+      style={{ transitionDelay: `${index * 0.15}s` }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* iPhone mockup */}
+      <div className="relative">
+        {/* Glow that intensifies on hover */}
+        <div
+          className="absolute inset-0 rounded-[36px] blur-2xl pointer-events-none transition-all duration-500"
+          style={{
+            backgroundColor: step.color,
+            opacity: hovered ? 0.35 : 0.15,
+            transform: hovered ? "scale(0.85)" : "scale(0.7)",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          style={{
+            transform: hovered ? "translateY(-6px) scale(1.03)" : "translateY(0) scale(1)",
+            transition: "transform 0.4s cubic-bezier(0.22,1,0.36,1)",
+          }}
+        >
+          <IPhoneMockup
+            src={step.img}
+            alt={`Mali Up — ${step.title}`}
+            width={150}
+            accentColor={step.color}
+          />
+        </div>
+
+        {/* Step badge */}
+        <span
+          className="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-sm text-[#0C1B2E] z-20 shadow-lg transition-transform duration-300"
+          style={{
+            backgroundColor: step.color,
+            transform: hovered ? "scale(1.15) rotate(-6deg)" : "scale(1) rotate(0deg)",
+          }}
+        >
+          {index + 1}
+        </span>
+      </div>
+
+      {/* Icon chip */}
+      <div
+        className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300"
+        style={{
+          backgroundColor: `${step.color}18`,
+          border: `1px solid ${step.color}${hovered ? "55" : "28"}`,
+          boxShadow: hovered ? `0 8px 24px ${step.color}25` : "none",
+        }}
+      >
+        <Icon
+          size={26}
+          style={{
+            color: step.color,
+            transform: hovered ? "scale(1.15)" : "scale(1)",
+            transition: "transform 0.3s ease",
+          }}
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <h3 className="font-heading font-bold text-white text-lg">{step.title}</h3>
+        <p className="text-white/50 leading-relaxed text-sm max-w-xs">{step.desc}</p>
+      </div>
+    </div>
+  )
+}
+
 export function HowItWorks() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
-      { threshold: 0.12 }
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
+      { threshold: 0.1 }
     )
-    sectionRef.current?.querySelectorAll(".reveal, .reveal-left, .reveal-right")
+    sectionRef.current?.querySelectorAll(".reveal,.reveal-left,.reveal-right")
       .forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
@@ -53,13 +128,12 @@ export function HowItWorks() {
       style={{ backgroundColor: "#0C1B2E" }}
       aria-labelledby="hiw-heading"
     >
-      {/* Decorative grid lines */}
+      {/* Grid texture */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage:
-            "linear-gradient(#F5A623 1px, transparent 1px), linear-gradient(90deg, #F5A623 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
+          backgroundImage: "linear-gradient(#F5A623 1px,transparent 1px),linear-gradient(90deg,#F5A623 1px,transparent 1px)",
+          backgroundSize: "72px 72px",
         }}
         aria-hidden="true"
       />
@@ -75,9 +149,9 @@ export function HowItWorks() {
           <h2
             id="hiw-heading"
             className="reveal font-heading font-bold text-white text-balance"
-            style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)" }}
+            style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}
           >
-            Up & Running in Minutes
+            Up &amp; Running in Minutes
           </h2>
           <p className="reveal text-white/50 max-w-lg mx-auto leading-relaxed">
             No IT team required. No steep learning curve. Just three steps from download to your first sale.
@@ -85,77 +159,27 @@ export function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="relative grid md:grid-cols-3 gap-8">
-          {/* Connecting line (desktop) */}
+        <div className="relative grid md:grid-cols-3 gap-10">
+          {/* Gradient connector line */}
           <div
-            className="absolute top-[90px] left-[22%] right-[22%] h-px hidden md:block"
-            style={{
-              background:
-                "linear-gradient(90deg, #F5A623 0%, #22C55E 50%, #3B82F6 100%)",
-              opacity: 0.25,
-            }}
+            className="absolute top-[88px] left-[22%] right-[22%] h-px hidden md:block"
+            style={{ background: "linear-gradient(90deg,#F5A623 0%,#22C55E 50%,#3B82F6 100%)", opacity: 0.2 }}
             aria-hidden="true"
           />
 
-          {steps.map((step, i) => {
-            const Icon = step.icon
-            return (
-              <div
-                key={step.number}
-                className="reveal relative flex flex-col items-center text-center gap-5"
-                style={{ transitionDelay: `${i * 0.15}s` }}
-              >
-                {/* iPhone mockup */}
-                <div className="relative">
-                  {/* Glow */}
-                  <div
-                    className="absolute inset-0 rounded-[40px] blur-2xl opacity-20 scale-75"
-                    style={{ backgroundColor: step.color }}
-                    aria-hidden="true"
-                  />
-                  <IPhoneMockup
-                    src={step.img}
-                    alt={`Mali Up ${step.title} screen`}
-                    width={140}
-                    accentColor={step.color}
-                  />
-                  {/* Step number badge */}
-                  <span
-                    className="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-sm text-[#0C1B2E] z-20 shadow-lg"
-                    style={{ backgroundColor: step.color }}
-                  >
-                    {i + 1}
-                  </span>
-                </div>
-
-                {/* Icon */}
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl"
-                  style={{
-                    backgroundColor: `${step.color}18`,
-                    border: `1px solid ${step.color}30`,
-                  }}
-                >
-                  <Icon size={26} style={{ color: step.color }} />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-heading font-bold text-white text-lg">{step.title}</h3>
-                  <p className="text-white/50 leading-relaxed text-sm max-w-xs">{step.desc}</p>
-                </div>
-              </div>
-            )
-          })}
+          {steps.map((step, i) => (
+            <StepCard key={step.number} step={step} index={i} />
+          ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* CTA */}
         <div className="mt-16 flex justify-center reveal">
           <a
             href="#waitlist"
-            className="shimmer-btn text-[#0C1B2E] font-bold px-8 py-4 rounded-2xl text-base shadow-2xl hover:scale-105 transition-transform duration-200 inline-flex items-center gap-2"
+            className="relative overflow-hidden shimmer-btn text-[#0C1B2E] font-bold px-8 py-4 rounded-2xl text-base shadow-2xl hover:scale-105 hover:shadow-[0_8px_32px_rgba(245,166,35,0.45)] active:scale-[0.97] transition-all duration-200 inline-flex items-center gap-2 group"
           >
             Start Your Free Account
-            <span aria-hidden="true">→</span>
+            <span className="group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">→</span>
           </a>
         </div>
       </div>

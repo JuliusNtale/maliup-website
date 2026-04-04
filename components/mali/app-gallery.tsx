@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { IPhoneMockup } from "@/components/mali/iphone-mockup"
-import Image from "next/image"
+import NextImage from "next/image"
 
 const screens = [
   {
@@ -135,7 +135,7 @@ export function AppGallery() {
         {/* Download nudge */}
         <div className="reveal text-center mt-16 flex flex-col items-center gap-5">
           <div className="flex items-center gap-3 justify-center mb-1">
-            <Image
+            <NextImage
               src="/maliup-logo.png"
               alt="Mali Up logo"
               width={32}
