@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
+import Image from "next/image"
 
 const perks = [
   "Early access before public launch",
@@ -60,6 +61,18 @@ export function Waitlist() {
           <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
             Limited Spots Available
           </span>
+        </div>
+
+        {/* Logo mark */}
+        <div className="reveal flex justify-center mb-4">
+          <Image
+            src="/maliup-logo.png"
+            alt="Mali Up logo"
+            width={64}
+            height={64}
+            className="rounded-2xl shadow-2xl"
+            style={{ boxShadow: "0 0 40px rgba(245,166,35,0.3)" }}
+          />
         </div>
 
         <h2

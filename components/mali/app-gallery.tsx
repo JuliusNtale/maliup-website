@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { IPhoneMockup } from "@/components/mali/iphone-mockup"
+import Image from "next/image"
 
 const screens = [
   {
@@ -133,9 +134,18 @@ export function AppGallery() {
 
         {/* Download nudge */}
         <div className="reveal text-center mt-16 flex flex-col items-center gap-5">
-          <p className="text-white/40 text-sm uppercase tracking-widest font-semibold">
-            Coming to
-          </p>
+          <div className="flex items-center gap-3 justify-center mb-1">
+            <Image
+              src="/maliup-logo.png"
+              alt="Mali Up logo"
+              width={32}
+              height={32}
+              className="rounded-xl"
+            />
+            <p className="text-white/40 text-sm uppercase tracking-widest font-semibold">
+              Coming to
+            </p>
+          </div>
           <div className="flex gap-4 flex-wrap justify-center">
             {[
               { name: "Google Play", badge: "Android · Primary" },

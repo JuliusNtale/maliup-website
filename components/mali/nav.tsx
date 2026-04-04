@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -30,9 +31,13 @@ export function Nav() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center shimmer-btn shadow-lg">
-            <span className="font-heading font-bold text-[#0C1B2E] text-sm tracking-tight">M↑</span>
-          </div>
+          <Image
+            src="/maliup-logo.png"
+            alt="Mali Up logo"
+            width={38}
+            height={38}
+            className="rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-200"
+          />
           <span className="font-heading font-bold text-white text-lg tracking-tight">
             Mali<span className="text-[#F5A623]">Up</span>
           </span>

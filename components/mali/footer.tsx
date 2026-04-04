@@ -1,4 +1,5 @@
 import { Twitter, Linkedin, Instagram, Globe } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   const links = {
@@ -24,9 +25,13 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center shimmer-btn shadow-lg">
-                <span className="font-heading font-bold text-[#0C1B2E] text-sm tracking-tight">M↑</span>
-              </div>
+              <Image
+                src="/maliup-logo.png"
+                alt="Mali Up logo"
+                width={40}
+                height={40}
+                className="rounded-xl shadow-lg"
+              />
               <span className="font-heading font-bold text-white text-lg tracking-tight">
                 Mali<span className="text-[#F5A623]">Up</span>
               </span>

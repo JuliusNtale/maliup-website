@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { ArrowRight, Play } from "lucide-react"
 import { IPhoneMockup } from "@/components/mali/iphone-mockup"
+import Image from "next/image"
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -63,7 +64,15 @@ export function Hero() {
           {/* Left — text */}
           <div className="flex flex-col gap-6">
             {/* Badge */}
-            <div data-hero-item className="inline-flex items-center gap-2 self-start">
+            <div data-hero-item className="inline-flex items-center gap-3 self-start">
+              <Image
+                src="/maliup-logo.png"
+                alt="Mali Up logo"
+                width={36}
+                height={36}
+                className="rounded-xl shadow-lg flex-shrink-0"
+                priority
+              />
               <span
                 className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase"
               >
