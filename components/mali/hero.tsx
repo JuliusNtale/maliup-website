@@ -165,13 +165,13 @@ export function Hero() {
             />
 
             {/* iPhone mockup with real app screenshot */}
-            <div className="relative animate-float-phone z-10">
+            <div className="relative animate-float-phone z-10" style={{ filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.5))" }}>
               <IPhoneMockup
                 src="/app-dashboard.jpg"
                 alt="Mali Up dashboard showing revenue, sales and inventory metrics"
-                width={240}
+                width={230}
                 accentColor="#F5A623"
-                priority
+                animate
               />
 
               {/* Floating mini-cards */}
