@@ -1,13 +1,13 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import { IPhoneMockup } from "@/components/mali/iphone-mockup"
 
 const tabs = [
   {
     id: "dashboard",
     label: "Dashboard",
-    img: "/maliup-dashboard.jpg",
+    img: "/app-dashboard.jpg",
     color: "#F5A623",
     headline: "Command your business at a glance",
     desc: "The home screen surfaces revenue trends, top-selling products, pending invoices, and inventory alerts — all in one clean view, optimised for small screens.",
@@ -20,7 +20,7 @@ const tabs = [
   {
     id: "invoicing",
     label: "Invoicing",
-    img: "/maliup-invoice.jpg",
+    img: "/app-invoice.jpg",
     color: "#22C55E",
     headline: "Professional invoices in seconds",
     desc: "Generate branded invoices, track payment status, send automated reminders, and record partial payments — no accounting degree required.",
@@ -33,7 +33,7 @@ const tabs = [
   {
     id: "analytics",
     label: "Analytics",
-    img: "/maliup-analytics.jpg",
+    img: "/app-analytics.jpg",
     color: "#3B82F6",
     headline: "Data that drives real decisions",
     desc: "Visual charts, period comparisons, and product performance heat-maps help you understand your business and spot opportunities faster.",
@@ -41,6 +41,19 @@ const tabs = [
       { label: "Growth", value: "+34%" },
       { label: "Top Product", value: "Fabric A" },
       { label: "Forecasted", value: "GHS 28K" },
+    ],
+  },
+  {
+    id: "inventory",
+    label: "Inventory",
+    img: "/app-inventory.jpg",
+    color: "#EF4444",
+    headline: "Always know what you have in stock",
+    desc: "Real-time inventory tracking with low-stock alerts, barcode scanning, and multi-location support. Never lose a sale because of an out-of-stock surprise.",
+    metrics: [
+      { label: "Products", value: "318" },
+      { label: "Low Stock", value: "7" },
+      { label: "Turnover", value: "92%" },
     ],
   },
 ]
@@ -123,37 +136,17 @@ export function PhoneShowcase() {
             <div className="relative">
               {/* Outer glow */}
               <div
-                className="absolute inset-0 rounded-[40px] blur-2xl opacity-30 transition-all duration-500"
+                className="absolute inset-0 rounded-[50px] blur-3xl opacity-25 transition-all duration-500 scale-90"
                 style={{ backgroundColor: current.color }}
                 aria-hidden="true"
               />
-              <div
-                className="relative w-[220px] md:w-[250px] rounded-[36px] overflow-hidden"
-                style={{
-                  border: `2px solid ${current.color}40`,
-                  boxShadow: `0 40px 80px rgba(0,0,0,0.5), 0 0 40px ${current.color}25`,
-                  transition: "box-shadow 0.5s ease, border-color 0.5s ease",
-                }}
-              >
-                {/* Status bar */}
-                <div
-                  className="flex items-center justify-between px-5 py-3"
-                  style={{ backgroundColor: "#0C1B2E" }}
-                >
-                  <span className="text-white text-[10px] font-semibold">9:41</span>
-                  <div className="w-14 h-3.5 rounded-full" style={{ backgroundColor: "#1a2d44" }} />
-                  <div className="w-5 h-2.5 rounded-sm border border-white/30" />
-                </div>
-                <Image
-                  key={current.id}
-                  src={current.img}
-                  alt={`Mali Up ${current.label} screen`}
-                  width={250}
-                  height={460}
-                  className="w-full object-cover"
-                  style={{ display: "block" }}
-                />
-              </div>
+              <IPhoneMockup
+                key={current.id}
+                src={current.img}
+                alt={`Mali Up ${current.label} screen`}
+                width={250}
+                accentColor={current.color}
+              />
             </div>
           </div>
 

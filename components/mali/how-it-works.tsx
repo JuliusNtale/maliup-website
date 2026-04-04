@@ -2,12 +2,14 @@
 
 import { useEffect, useRef } from "react"
 import { Download, Store, TrendingUp } from "lucide-react"
+import { IPhoneMockup } from "@/components/mali/iphone-mockup"
 
 const steps = [
   {
     number: "01",
     icon: Download,
     color: "#F5A623",
+    img: "/app-dashboard.jpg",
     title: "Download & Sign Up",
     desc: "Install Mali Up on Android or iOS. Create your tenant account in under 2 minutes — no paperwork, no delays.",
   },
@@ -15,6 +17,7 @@ const steps = [
     number: "02",
     icon: Store,
     color: "#22C55E",
+    img: "/app-inventory.jpg",
     title: "Set Up Your Business",
     desc: "Add your products, pricing, staff, and customers. Import existing data or start fresh — Mali Up adapts to you.",
   },
@@ -22,6 +25,7 @@ const steps = [
     number: "03",
     icon: TrendingUp,
     color: "#3B82F6",
+    img: "/app-analytics.jpg",
     title: "Grow with Data",
     desc: "Sell, invoice, and track in real time. Let the analytics surface insights that help you make smarter decisions every day.",
   },
@@ -84,7 +88,7 @@ export function HowItWorks() {
         <div className="relative grid md:grid-cols-3 gap-8">
           {/* Connecting line (desktop) */}
           <div
-            className="absolute top-10 left-[16%] right-[16%] h-px hidden md:block"
+            className="absolute top-[90px] left-[22%] right-[22%] h-px hidden md:block"
             style={{
               background:
                 "linear-gradient(90deg, #F5A623 0%, #22C55E 50%, #3B82F6 100%)",
@@ -101,24 +105,38 @@ export function HowItWorks() {
                 className="reveal relative flex flex-col items-center text-center gap-5"
                 style={{ transitionDelay: `${i * 0.15}s` }}
               >
-                {/* Number + icon */}
+                {/* iPhone mockup */}
                 <div className="relative">
+                  {/* Glow */}
                   <div
-                    className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-2xl"
-                    style={{
-                      backgroundColor: `${step.color}18`,
-                      border: `1px solid ${step.color}30`,
-                    }}
-                  >
-                    <Icon size={32} style={{ color: step.color }} />
-                  </div>
+                    className="absolute inset-0 rounded-[40px] blur-2xl opacity-20 scale-75"
+                    style={{ backgroundColor: step.color }}
+                    aria-hidden="true"
+                  />
+                  <IPhoneMockup
+                    src={step.img}
+                    alt={`Mali Up ${step.title} screen`}
+                    width={140}
+                    accentColor={step.color}
+                  />
                   {/* Step number badge */}
                   <span
-                    className="absolute -top-3 -right-3 w-7 h-7 rounded-full flex items-center justify-center font-heading font-bold text-xs text-[#0C1B2E]"
+                    className="absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-sm text-[#0C1B2E] z-20 shadow-lg"
                     style={{ backgroundColor: step.color }}
                   >
                     {i + 1}
                   </span>
+                </div>
+
+                {/* Icon */}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl"
+                  style={{
+                    backgroundColor: `${step.color}18`,
+                    border: `1px solid ${step.color}30`,
+                  }}
+                >
+                  <Icon size={26} style={{ color: step.color }} />
                 </div>
 
                 <div className="flex flex-col gap-2">

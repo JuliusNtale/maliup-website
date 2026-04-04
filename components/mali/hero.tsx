@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { ArrowRight, Play } from "lucide-react"
-import Image from "next/image"
+import { IPhoneMockup } from "@/components/mali/iphone-mockup"
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -147,51 +147,27 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right — floating phone */}
+          {/* Right — floating iPhone */}
           <div className="relative flex justify-center items-center" aria-hidden="true">
             {/* Glow behind phone */}
             <div
-              className="absolute w-64 h-64 rounded-full animate-pulse-ring"
-              style={{ background: "radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%)" }}
+              className="absolute w-72 h-72 rounded-full animate-pulse-ring"
+              style={{ background: "radial-gradient(circle, rgba(245,166,35,0.22) 0%, transparent 70%)" }}
             />
 
-            {/* Phone shell */}
+            {/* iPhone mockup with real app screenshot */}
             <div className="relative animate-float-phone z-10">
-              <div
-                className="w-[220px] md:w-[260px] rounded-[36px] overflow-hidden shadow-2xl"
-                style={{
-                  border: "2px solid rgba(255,255,255,0.12)",
-                  boxShadow: "0 40px 80px rgba(0,0,0,0.6), 0 0 60px rgba(245,166,35,0.15)",
-                }}
-              >
-                {/* Phone status bar */}
-                <div
-                  className="flex items-center justify-between px-5 py-2.5"
-                  style={{ backgroundColor: "#0C1B2E" }}
-                >
-                  <span className="text-white text-[10px] font-semibold">9:41</span>
-                  <div className="w-16 h-4 rounded-full" style={{ backgroundColor: "#1a2d44" }} />
-                  <div className="flex gap-1">
-                    {[1, 2, 3].map((b) => (
-                      <div key={b} className="w-1 rounded-sm" style={{ height: `${b * 4}px`, backgroundColor: "#F5A623", alignSelf: "flex-end" }} />
-                    ))}
-                    <div className="w-4 h-2.5 rounded-sm border border-white/40 ml-1 self-center" />
-                  </div>
-                </div>
-                {/* App screen */}
-                <Image
-                  src="/maliup-dashboard.jpg"
-                  alt="Mali Up dashboard showing sales, revenue charts and business analytics"
-                  width={260}
-                  height={480}
-                  className="w-full object-cover"
-                  priority
-                />
-              </div>
+              <IPhoneMockup
+                src="/app-dashboard.jpg"
+                alt="Mali Up dashboard showing revenue, sales and inventory metrics"
+                width={240}
+                accentColor="#F5A623"
+                priority
+              />
 
               {/* Floating mini-cards */}
               <div
-                className="absolute -left-14 top-10 glass rounded-2xl px-3 py-2.5 flex items-center gap-2.5 shadow-xl"
+                className="absolute -left-16 top-12 glass rounded-2xl px-3 py-2.5 flex items-center gap-2.5 shadow-xl"
                 style={{ border: "1px solid rgba(245,166,35,0.2)" }}
               >
                 <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#22C55E20" }}>
@@ -204,11 +180,11 @@ export function Hero() {
               </div>
 
               <div
-                className="absolute -right-12 bottom-16 glass rounded-2xl px-3 py-2.5 flex items-center gap-2.5 shadow-xl"
+                className="absolute -right-16 bottom-20 glass rounded-2xl px-3 py-2.5 flex items-center gap-2.5 shadow-xl"
                 style={{ border: "1px solid rgba(34,197,94,0.2)" }}
               >
                 <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#F5A62320" }}>
-                  <span className="text-[#F5A623] text-sm">⚡</span>
+                  <span className="text-[#F5A623] text-sm font-bold">⚡</span>
                 </div>
                 <div>
                   <p className="text-white text-xs font-bold">247 Sales</p>
