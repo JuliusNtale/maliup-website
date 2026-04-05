@@ -10,7 +10,7 @@ import { Footer } from "@/components/mali/footer"
 
 export default function MaliUpPage() {
   return (
-    <main style={{ backgroundColor: "#0C1B2E" }}>
+    <main style={{ backgroundColor: "#FFFFFF" }}>
       <Nav />
       <Hero />
       <Features />

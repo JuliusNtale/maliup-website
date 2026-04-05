@@ -64,8 +64,8 @@ function StatCard({ stat, started, index }: { stat: typeof stats[0]; started: bo
       </div>
 
       <div className="flex flex-col gap-0.5">
-        <p className="text-white font-semibold text-sm">{stat.label}</p>
-        <p className="text-white/35 text-xs">{stat.sublabel}</p>
+        <p className="text-[#0C1B2E] font-semibold text-sm">{stat.label}</p>
+        <p className="text-[#0C1B2E]/45 text-xs">{stat.sublabel}</p>
       </div>
 
       <div
@@ -102,7 +102,7 @@ export function Stats() {
       id="stats"
       ref={sectionRef}
       className="py-24 relative overflow-hidden"
-      style={{ backgroundColor: "#0C1B2E" }}
+      style={{ backgroundColor: "#FFFFFF" }}
       aria-labelledby="stats-heading"
     >
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg,transparent 0%,#F5A623 30%,#22C55E 70%,transparent 100%)" }} aria-hidden="true" />
@@ -112,10 +112,10 @@ export function Stats() {
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16 flex flex-col gap-4">
-          <h2 id="stats-heading" className="reveal font-heading font-bold text-white text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
+          <h2 id="stats-heading" className="reveal font-heading font-bold text-[#0C1B2E] text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
             Growing Fast Across Africa
           </h2>
-          <p className="reveal text-white/50 max-w-md mx-auto leading-relaxed">
+          <p className="reveal text-[#0C1B2E]/65 max-w-md mx-auto leading-relaxed">
             From Ghana to Nigeria, Kenya to Senegal — African businesses are choosing Mali Up to modernise their operations.
           </p>
         </div>

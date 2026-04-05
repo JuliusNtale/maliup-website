@@ -68,7 +68,7 @@ export function Waitlist() {
       id="waitlist"
       ref={sectionRef}
       className="py-24 relative overflow-hidden"
-      style={{ backgroundColor: "#0F1F35" }}
+      style={{ backgroundColor: "#F8FAFC" }}
       aria-labelledby="waitlist-heading"
     >
       {/* Radial glow */}
@@ -104,7 +104,7 @@ export function Waitlist() {
 
         <h2
           id="waitlist-heading"
-          className="reveal font-heading font-bold text-white mb-4 text-balance"
+          className="reveal font-heading font-bold text-[#0C1B2E] mb-4 text-balance"
           style={{ fontSize: "clamp(2rem,5vw,3.2rem)" }}
         >
           Be First in Line When{" "}
@@ -116,7 +116,7 @@ export function Waitlist() {
           </span>
         </h2>
 
-        <p className="reveal text-white/50 leading-relaxed mb-10 max-w-xl mx-auto">
+        <p className="reveal text-[#0C1B2E]/65 leading-relaxed mb-10 max-w-xl mx-auto">
           Join thousands of African entrepreneurs ready to take their business to the next level. Spots are limited — secure yours today.
         </p>
 
@@ -125,7 +125,7 @@ export function Waitlist() {
           {perks.map((perk, i) => (
             <li
               key={perk}
-              className="flex items-center gap-2 text-white/60 text-sm group"
+              className="flex items-center gap-2 text-[#0C1B2E]/65 text-sm group"
               style={{ transitionDelay: `${i * 0.08}s` }}
             >
               <CheckCircle2 size={14} className="text-[#22C55E] shrink-0 group-hover:scale-110 transition-transform duration-200" />
@@ -152,7 +152,7 @@ export function Waitlist() {
               onChange={(e) => setEmail(e.target.value)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
-              className="flex-1 glass rounded-2xl px-5 py-3.5 text-white placeholder-white/30 text-sm outline-none transition-all duration-200"
+              className="flex-1 glass rounded-2xl px-5 py-3.5 text-[#0C1B2E] placeholder-[#0C1B2E]/30 text-sm outline-none transition-all duration-200"
               style={{
                 border: focused ? "1px solid rgba(245,166,35,0.6)" : "1px solid rgba(255,255,255,0.12)",
                 boxShadow: focused ? "0 0 0 3px rgba(245,166,35,0.1)" : "none",
@@ -199,14 +199,14 @@ export function Waitlist() {
                 <Sparkles size={14} className="absolute -top-2 -right-2 text-[#F5A623]" aria-hidden="true" />
               </div>
               <div className="text-left">
-                <p className="text-white font-bold text-base">You&apos;re on the list!</p>
-                <p className="text-white/55 text-sm">We&apos;ll reach out the moment Mali Up launches.</p>
+                <p className="text-[#0C1B2E] font-bold text-base">You&apos;re on the list!</p>
+                <p className="text-[#0C1B2E]/65 text-sm">We&apos;ll reach out the moment Mali Up launches.</p>
               </div>
             </div>
           </div>
         )}
 
-        <p className="reveal text-white/25 text-xs mt-6">
+        <p className="reveal text-[#0C1B2E]/35 text-xs mt-6">
           No spam, ever. Unsubscribe any time. Your data stays private.
         </p>
       </div>

@@ -67,8 +67,8 @@ function FeatureCard({ mod, index }: { mod: typeof modules[0]; index: number }) 
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <h3 className="font-heading font-bold text-white text-base">{mod.title}</h3>
-        <p className="text-white/50 text-sm leading-relaxed">{mod.desc}</p>
+        <h3 className="font-heading font-bold text-[#0C1B2E] text-base">{mod.title}</h3>
+        <p className="text-[#0C1B2E]/65 text-sm leading-relaxed">{mod.desc}</p>
       </div>
 
       {/* Animated bottom accent */}
@@ -101,7 +101,7 @@ export function Features() {
       id="features"
       ref={sectionRef}
       className="py-24 relative overflow-hidden"
-      style={{ backgroundColor: "#0F1F35" }}
+      style={{ backgroundColor: "#F8FAFC" }}
       aria-labelledby="features-heading"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px" style={{ background: "linear-gradient(90deg,transparent,#F5A623,transparent)" }} aria-hidden="true" />
@@ -111,10 +111,10 @@ export function Features() {
           <div className="reveal inline-flex justify-center">
             <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">Everything You Need</span>
           </div>
-          <h2 id="features-heading" className="reveal font-heading font-bold text-white text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
+          <h2 id="features-heading" className="reveal font-heading font-bold text-[#0C1B2E] text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
             One App. Eight Powerful Modules.
           </h2>
-          <p className="reveal text-white/50 max-w-xl mx-auto leading-relaxed">
+          <p className="reveal text-[#0C1B2E]/65 max-w-xl mx-auto leading-relaxed">
             From the market stall to the growing enterprise — Mali Up scales with your business, keeping every operation connected in one place.
           </p>
         </div>

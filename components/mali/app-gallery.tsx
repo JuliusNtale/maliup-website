@@ -61,13 +61,13 @@ export function AppGallery() {
       id="gallery"
       ref={sectionRef}
       className="py-24 relative overflow-hidden"
-      style={{ backgroundColor: "#091523" }}
+      style={{ backgroundColor: "#FFFFFF" }}
       aria-labelledby="gallery-heading"
     >
       {/* Radial amber glow center */}
       <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-3xl opacity-10 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, #F5A623 0%, transparent 70%)" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl opacity-10 pointer-events-none"
+        style={{ width: "600px", height: "400px", background: "radial-gradient(ellipse, #F5A623 0%, transparent 70%)" }}
         aria-hidden="true"
       />
 
@@ -81,12 +81,12 @@ export function AppGallery() {
           </div>
           <h2
             id="gallery-heading"
-            className="reveal font-heading font-bold text-white text-balance"
+            className="reveal font-heading font-bold text-[#0C1B2E] text-balance"
             style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)" }}
           >
             Every Tool at Your Fingertips
           </h2>
-          <p className="reveal text-white/50 max-w-lg mx-auto leading-relaxed">
+          <p className="reveal text-[#0C1B2E]/65 max-w-lg mx-auto leading-relaxed">
             Beautifully designed for clarity and speed. Each module is a tap away, built for the realities of African business on the move.
           </p>
         </div>
@@ -142,7 +142,7 @@ export function AppGallery() {
               height={32}
               className="rounded-xl"
             />
-            <p className="text-white/40 text-sm uppercase tracking-widest font-semibold">
+            <p className="text-[#0C1B2E]/45 text-sm uppercase tracking-widest font-semibold">
               Coming to
             </p>
           </div>
@@ -156,8 +156,8 @@ export function AppGallery() {
                 className="glass flex items-center gap-3 px-5 py-3.5 rounded-2xl hover:border-white/20 transition-all duration-200 cursor-default"
               >
                 <div className="flex flex-col">
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest">{store.badge}</span>
-                  <span className="text-white font-bold text-sm">{store.name}</span>
+                  <span className="text-[#0C1B2E]/35 text-[10px] uppercase tracking-widest">{store.badge}</span>
+                  <span className="text-[#0C1B2E] font-bold text-sm">{store.name}</span>
                 </div>
               </div>
             ))}

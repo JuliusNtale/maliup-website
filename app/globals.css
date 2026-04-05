@@ -133,8 +133,8 @@
   --mali-amber: #F5A623;
   --mali-amber-light: #FBBF24;
   --mali-green: #22C55E;
-  --mali-white: #FAFAFA;
-  --mali-card: #162036;
+  --mali-white: #FFFFFF;
+  --mali-card: #FFFFFF;
 }
 
 /* Fonts */
@@ -144,16 +144,16 @@
 
 /* Glassmorphism */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(12, 27, 46, 0.08);
 }
 
 .glass-amber {
-  background: rgba(245, 166, 35, 0.08);
+  background: rgba(245, 166, 35, 0.12);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(245, 166, 35, 0.18);
+  border: 1px solid rgba(245, 166, 35, 0.28);
 }
 
 /* Scroll reveal */
@@ -230,7 +230,7 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar       { width: 4px; }
-::-webkit-scrollbar-track { background: #0C1B2E; }
+::-webkit-scrollbar-track { background: #E5E7EB; }
 ::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 2px; }
 
 /* ── Emotional design micro-interactions ── */

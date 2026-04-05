@@ -101,7 +101,7 @@ export function PhoneShowcase() {
       id="modules"
       ref={sectionRef}
       className="py-24 relative overflow-hidden"
-      style={{ backgroundColor: "#0F1F35" }}
+      style={{ backgroundColor: "#F8FAFC" }}
       aria-labelledby="showcase-heading"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px" style={{ background: "linear-gradient(90deg,transparent,#22C55E,transparent)" }} aria-hidden="true" />
@@ -112,7 +112,7 @@ export function PhoneShowcase() {
           <div className="reveal inline-flex justify-center">
             <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">App Screenshots</span>
           </div>
-          <h2 id="showcase-heading" className="reveal font-heading font-bold text-white text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
+          <h2 id="showcase-heading" className="reveal font-heading font-bold text-[#0C1B2E] text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
             Built for the Real World of African Business
           </h2>
         </div>
@@ -130,7 +130,7 @@ export function PhoneShowcase() {
               style={
                 active === i
                   ? { backgroundColor: tab.color, borderColor: tab.color, color: "#0C1B2E", transform: "scale(1.06)" }
-                  : { background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.55)" }
+                  : { background: "rgba(255,255,255,0.9)", borderColor: "rgba(12,27,46,0.08)", color: "rgba(12,27,46,0.62)" }
               }
             >
               {/* Active indicator ripple */}
@@ -193,7 +193,7 @@ export function PhoneShowcase() {
               <h3 className="font-heading font-bold text-white text-2xl md:text-3xl text-balance">
                 {current.headline}
               </h3>
-              <p className="text-white/55 leading-relaxed">{current.desc}</p>
+              <p className="text-[#0C1B2E]/65 leading-relaxed">{current.desc}</p>
             </div>
 
             {/* Metric cards */}
@@ -207,7 +207,7 @@ export function PhoneShowcase() {
                   <span className="font-heading font-bold text-lg group-hover:scale-105 transition-transform duration-200 inline-block" style={{ color: current.color }}>
                     {m.value}
                   </span>
-                  <span className="text-white/40 text-xs">{m.label}</span>
+                  <span className="text-[#0C1B2E]/45 text-xs">{m.label}</span>
                 </div>
               ))}
             </div>

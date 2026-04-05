@@ -100,8 +100,8 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="font-heading font-bold text-white text-lg">{step.title}</h3>
-        <p className="text-white/50 leading-relaxed text-sm max-w-xs">{step.desc}</p>
+        <h3 className="font-heading font-bold text-[#0C1B2E] text-lg">{step.title}</h3>
+        <p className="text-[#0C1B2E]/65 leading-relaxed text-sm max-w-xs">{step.desc}</p>
       </div>
     </div>
   )
@@ -125,7 +125,7 @@ export function HowItWorks() {
       id="how-it-works"
       ref={sectionRef}
       className="py-24 relative overflow-hidden"
-      style={{ backgroundColor: "#0C1B2E" }}
+      style={{ backgroundColor: "#FFFFFF" }}
       aria-labelledby="hiw-heading"
     >
       {/* Grid texture */}
@@ -148,12 +148,12 @@ export function HowItWorks() {
           </div>
           <h2
             id="hiw-heading"
-            className="reveal font-heading font-bold text-white text-balance"
+            className="reveal font-heading font-bold text-[#0C1B2E] text-balance"
             style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}
           >
             Up &amp; Running in Minutes
           </h2>
-          <p className="reveal text-white/50 max-w-lg mx-auto leading-relaxed">
+          <p className="reveal text-[#0C1B2E]/65 max-w-lg mx-auto leading-relaxed">
             No IT team required. No steep learning curve. Just three steps from download to your first sale.
           </p>
         </div>

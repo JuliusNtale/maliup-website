@@ -53,8 +53,8 @@ function FloatCard({
         {icon}
       </div>
       <div>
-        <p className="text-white text-xs font-bold leading-none mb-0.5">{value}</p>
-        <p className="text-white/40 text-[10px]">{label}</p>
+        <p className="text-[#0C1B2E] text-xs font-bold leading-none mb-0.5">{value}</p>
+        <p className="text-[#0C1B2E]/55 text-[10px]">{label}</p>
       </div>
     </div>
   )
@@ -92,13 +92,15 @@ export function Hero() {
   return (
     <section
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-      style={{ backgroundColor: "#0C1B2E" }}
+      style={{ backgroundColor: "#FFFFFF" }}
       aria-labelledby="hero-heading"
     >
       {/* Dynamic background orbs that follow cursor */}
       <div
-        className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-1/4 right-0 rounded-full pointer-events-none"
         style={{
+          width: "600px",
+          height: "600px",
           background: "radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%)",
           transform: `translate(${(cursorPos.x - 0.5) * -30}px, ${(cursorPos.y - 0.5) * -20}px)`,
           transition: "transform 1.2s cubic-bezier(0.22,1,0.36,1)",
@@ -106,8 +108,10 @@ export function Hero() {
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+        className="absolute bottom-0 left-0 rounded-full pointer-events-none"
         style={{
+          width: "400px",
+          height: "400px",
           background: "radial-gradient(circle, rgba(34,197,94,0.07) 0%, transparent 65%)",
           transform: `translate(${(cursorPos.x - 0.5) * 20}px, ${(cursorPos.y - 0.5) * 20}px)`,
           transition: "transform 1.8s cubic-bezier(0.22,1,0.36,1)",
@@ -126,8 +130,8 @@ export function Hero() {
       />
 
       {/* Spinning decorative rings */}
-      <div className="absolute right-16 top-24 w-56 h-56 rounded-full border border-dashed border-white/[0.07] animate-spin-slow hidden lg:block" aria-hidden="true" />
-      <div className="absolute right-24 top-32 w-40 h-40 rounded-full border border-dashed border-[#F5A623]/[0.08] animate-spin-slow hidden lg:block" style={{ animationDirection: "reverse", animationDuration: "30s" }} aria-hidden="true" />
+      <div className="absolute right-16 top-24 w-56 h-56 rounded-full border border-dashed border-[#0C1B2E]/8 animate-spin-slow hidden lg:block" aria-hidden="true" />
+      <div className="absolute right-24 top-32 w-40 h-40 rounded-full border border-dashed border-[#F5A623]/18 animate-spin-slow hidden lg:block" style={{ animationDirection: "reverse", animationDuration: "30s" }} aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto px-6 pt-28 pb-16 w-full" ref={heroRef}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -154,7 +158,7 @@ export function Hero() {
             <h1
               id="hero-heading"
               data-hero-item
-              className="font-heading font-bold text-white leading-[1.08] text-balance"
+              className="font-heading font-bold text-[#0C1B2E] leading-[1.08] text-balance"
               style={{ fontSize: "clamp(2.4rem, 5vw, 3.8rem)" }}
             >
               Your Entire Business{" "}
@@ -167,14 +171,14 @@ export function Hero() {
             </h1>
 
             {/* Sub */}
-            <p data-hero-item className="text-white/60 leading-relaxed text-lg max-w-md">
+            <p data-hero-item className="text-[#0C1B2E]/70 leading-relaxed text-lg max-w-md">
               Mali Up is the pocket ERP built for African SMBs — manage sales, invoices,
               inventory, finance, customers, and analytics from your phone.{" "}
-              <span className="text-white/80">Fast on 3G. Ready for tomorrow.</span>
+              <span className="text-[#0C1B2E]/85">Fast on 3G. Ready for tomorrow.</span>
             </p>
 
             {/* Built by */}
-            <p data-hero-item className="text-white/30 text-xs tracking-widest uppercase">
+            <p data-hero-item className="text-[#0C1B2E]/45 text-xs tracking-widest uppercase">
               Built by <span className="text-[#F5A623]/70 font-semibold">Neuraltale Technology</span>
             </p>
 
@@ -189,7 +193,7 @@ export function Hero() {
               </a>
               <a
                 href="#how-it-works"
-                className="flex items-center gap-2.5 text-white/60 hover:text-white transition-all duration-200 font-medium text-sm group"
+                className="flex items-center gap-2.5 text-[#0C1B2E]/60 hover:text-[#0C1B2E] transition-all duration-200 font-medium text-sm group"
               >
                 <span className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#F5A623] group-hover:bg-[#F5A623]/10 transition-all duration-300">
                   <Play size={13} className="ml-0.5 text-[#F5A623]" />
@@ -204,14 +208,14 @@ export function Hero() {
                 {["#F5A623", "#22C55E", "#3B82F6", "#EF4444"].map((c, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full border-2 border-[#0C1B2E]"
+                    className="w-8 h-8 rounded-full border-2 border-white"
                     style={{ background: `linear-gradient(135deg, ${c}cc, ${c}88)` }}
                     aria-hidden="true"
                   />
                 ))}
               </div>
-              <p className="text-white/50 text-sm">
-                <span className="text-white font-semibold">2,400+</span> businesses on the waitlist
+              <p className="text-[#0C1B2E]/55 text-sm">
+                <span className="text-[#0C1B2E] font-semibold">2,400+</span> businesses on the waitlist
               </p>
             </div>
           </div>
@@ -262,8 +266,8 @@ export function Hero() {
 
       {/* Ticker */}
       <div
-        className="relative w-full overflow-hidden border-t border-b border-white/[0.05] py-3.5"
-        style={{ backgroundColor: "rgba(255,255,255,0.025)" }}
+        className="relative w-full overflow-hidden border-t border-b border-[#0C1B2E]/6 py-3.5"
+        style={{ backgroundColor: "rgba(12,27,46,0.02)" }}
         aria-hidden="true"
       >
         <div className="animate-ticker flex gap-0 whitespace-nowrap select-none">
@@ -276,7 +280,7 @@ export function Hero() {
             "Business Analytics","Customer CRM","Finance Tracking","Africa-First",
             "Works on 3G","Flutter Powered",
           ]).map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-3 px-6 text-xs text-white/35 uppercase tracking-widest font-semibold">
+            <span key={i} className="inline-flex items-center gap-3 px-6 text-xs text-[#0C1B2E]/45 uppercase tracking-widest font-semibold">
               <span className="w-1 h-1 rounded-full bg-[#F5A623] inline-block" />
               {item}
             </span>

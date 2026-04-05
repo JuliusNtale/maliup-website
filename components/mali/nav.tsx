@@ -54,7 +54,7 @@ export function Nav() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled ? "py-3" : "py-5 bg-transparent"
       }`}
-      style={scrolled ? { backgroundColor: "rgba(12,27,46,0.88)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.07)" } : {}}
+      style={scrolled ? { backgroundColor: "rgba(255,255,255,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(12,27,46,0.08)" } : {}}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
@@ -68,7 +68,7 @@ export function Nav() {
             className="rounded-xl shadow-lg logo-heartbeat"
             priority
           />
-          <span className="font-heading font-bold text-white text-lg tracking-tight">
+          <span className="font-heading font-bold text-[#0C1B2E] text-lg tracking-tight">
             Mali<span style={{ color: "#F5A623" }}>Up</span>
           </span>
         </a>
@@ -82,7 +82,7 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 className="relative text-sm font-medium transition-colors duration-200 py-1"
-                style={{ color: isActive ? "#F5A623" : "rgba(255,255,255,0.65)" }}
+                style={{ color: isActive ? "#F5A623" : "rgba(12,27,46,0.62)" }}
               >
                 {link.label}
                 {/* Active underline */}
@@ -113,7 +113,7 @@ export function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white p-1.5 rounded-xl glass transition-colors"
+          className="md:hidden text-[#0C1B2E] p-1.5 rounded-xl glass transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
@@ -132,9 +132,9 @@ export function Nav() {
 
       {/* Mobile menu — slide down */}
       <div
-        className="md:hidden mx-4 rounded-2xl glass border border-white/10 flex flex-col gap-4 overflow-hidden"
+        className="md:hidden mx-4 rounded-2xl glass border border-[#0C1B2E]/10 flex flex-col gap-4 overflow-hidden"
         style={{
-          backgroundColor: "rgba(12,27,46,0.96)",
+          backgroundColor: "rgba(255,255,255,0.96)",
           maxHeight: menuOpen ? "400px" : "0px",
           padding: menuOpen ? "20px" : "0 20px",
           marginTop: menuOpen ? "8px" : "0",
@@ -149,7 +149,7 @@ export function Nav() {
             href={link.href}
             onClick={() => setMenuOpen(false)}
             className="font-medium transition-colors py-1"
-            style={{ color: activeLink === link.href ? "#F5A623" : "rgba(255,255,255,0.75)" }}
+            style={{ color: activeLink === link.href ? "#F5A623" : "rgba(12,27,46,0.68)" }}
           >
             {link.label}
           </a>

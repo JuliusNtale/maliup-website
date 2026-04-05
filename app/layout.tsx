@@ -29,8 +29,7 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/maliup-logo.png',
       },
     ],
     apple: '/apple-icon.png',

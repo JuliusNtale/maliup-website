@@ -17,7 +17,7 @@ export function Footer() {
   return (
     <footer
       className="relative overflow-hidden pt-16 pb-8"
-      style={{ backgroundColor: "#0C1B2E", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+      style={{ backgroundColor: "#FFFFFF", borderTop: "1px solid rgba(12,27,46,0.08)" }}
       aria-label="Site footer"
     >
       {/* Subtle amber glow bottom-left */}
@@ -40,11 +40,11 @@ export function Footer() {
                 height={40}
                 className="rounded-xl shadow-lg logo-heartbeat"
               />
-              <span className="font-heading font-bold text-white text-lg tracking-tight">
+              <span className="font-heading font-bold text-[#0C1B2E] text-lg tracking-tight">
                 Mali<span style={{ color: "#F5A623" }}>Up</span>
               </span>
             </div>
-            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+            <p className="text-[#0C1B2E]/60 text-sm leading-relaxed max-w-xs">
               The pocket ERP for African SMBs. Built by{" "}
               <span style={{ color: "rgba(245,166,35,0.7)" }}>Neuraltale Technology</span> — engineered for the continent, designed for growth.
             </p>
@@ -56,7 +56,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 glass rounded-xl flex items-center justify-center text-white/40 transition-all duration-200 hover:text-[#F5A623] hover:border-[#F5A623]/30 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(245,166,35,0.2)]"
+                  className="w-9 h-9 glass rounded-xl flex items-center justify-center text-[#0C1B2E]/45 transition-all duration-200 hover:text-[#F5A623] hover:border-[#F5A623]/30 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(245,166,35,0.2)]"
                 >
                   <Icon size={15} />
                 </a>
@@ -67,13 +67,13 @@ export function Footer() {
           {/* Nav columns */}
           {Object.entries(links).map(([section, items]) => (
             <div key={section} className="flex flex-col gap-4">
-              <h3 className="text-white font-bold text-sm tracking-wide">{section}</h3>
+              <h3 className="text-[#0C1B2E] font-bold text-sm tracking-wide">{section}</h3>
               <ul className="flex flex-col gap-2.5">
                 {items.map((item) => (
                   <li key={item}>
                     <a
                       href="#"
-                      className="text-white/40 text-sm transition-all duration-200 hover:text-white/80 hover:translate-x-0.5 inline-block"
+                      className="text-[#0C1B2E]/55 text-sm transition-all duration-200 hover:text-[#0C1B2E] hover:translate-x-0.5 inline-block"
                     >
                       {item}
                     </a>
@@ -87,14 +87,14 @@ export function Footer() {
         {/* Bottom bar */}
         <div
           className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ borderTop: "1px solid rgba(12,27,46,0.08)" }}
         >
-          <p className="text-white/25 text-xs">
+          <p className="text-[#0C1B2E]/40 text-xs">
             &copy; {new Date().getFullYear()} Neuraltale Technology. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" aria-hidden="true" />
-            <span className="text-white/25 text-xs">All systems operational</span>
+            <span className="text-[#0C1B2E]/40 text-xs">All systems operational</span>
           </div>
         </div>
       </div>
