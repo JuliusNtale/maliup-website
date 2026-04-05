@@ -25,10 +25,10 @@ export function IPhoneMockup({
 
   // Measured from phone_035.png transparent screen window.
   const insets = {
-    left: "8.341%",
-    right: "7.441%",
-    top: "3.486%",
-    bottom: "5.216%",
+    left: "8.541%",
+    right: "7.641%",
+    top: "3.686%",
+    bottom: "5.416%",
   }
 
   return (
@@ -43,7 +43,7 @@ export function IPhoneMockup({
           right: insets.right,
           top: insets.top,
           bottom: insets.bottom,
-          borderRadius: "1%",
+          borderRadius: "0.8%",
           boxShadow: `inset 0 0 0 1px ${accentColor}33`,
         }}
       >
