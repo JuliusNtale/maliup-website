@@ -1,35 +1,42 @@
-# maliup-website
+# Mali Up Website
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Mali Up is a Next.js landing page for an Africa-first pocket ERP product. The site is built with React 19, Tailwind CSS 4, shadcn-style UI primitives, and Vercel Analytics.
 
-## Built with v0
+## What’s In The App
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
-
-[Continue working on v0 →](https://v0.app/chat/projects/prj_E1n5hyf7m9mMfsfR9YQsRMVapbdc)
+- A landing-page experience with a hero section, feature grid, onboarding flow, app showcase, stats, waitlist form, and footer.
+- A light UI theme with brand accents for Mali Up.
+- A PNG-based iPhone mockup frame using the asset in [components/ui/phone_035.png](components/ui/phone_035.png).
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the dev server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-## Learn More
+- `pnpm dev` starts the Next.js development server.
+- `pnpm build` creates a production build.
+- `pnpm start` runs the production build.
+- `pnpm lint` runs ESLint across the repo.
 
-To learn more, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+- [app/page.tsx](app/page.tsx) renders the home page sections.
+- [app/layout.tsx](app/layout.tsx) defines metadata and global layout.
+- [app/globals.css](app/globals.css) contains the shared theme and utility styles.
+- [components/mali/](components/mali) contains the Mali Up sections and page blocks.
+- [components/mali/iphone-mockup.tsx](components/mali/iphone-mockup.tsx) renders the new PNG-based phone frame.
+- [components/ui/](components/ui) contains reusable UI primitives and the phone frame asset.
 
-<a href="https://v0.app/chat/api/kiro/clone/JuliusNtale/maliup-website" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+## Notes
+
+- The current homepage is designed as a marketing landing page rather than an authenticated app shell.
+- The phone mockup uses the PNG asset directly so screenshots render inside the frame cleanly.
+- If you replace assets in [components/ui/](components/ui), keep the frame dimensions consistent with the existing mockup layout.
