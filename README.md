@@ -35,6 +35,17 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - [components/mali/iphone-mockup.tsx](components/mali/iphone-mockup.tsx) renders the new PNG-based phone frame.
 - [components/ui/](components/ui) contains reusable UI primitives and the phone frame asset.
 
+## Deployment
+
+The site is optimized for deployment on [Vercel](https://vercel.com).
+
+1. Push your changes to a Git remote (GitHub, GitLab, etc.).
+2. Connect the repository to Vercel at [vercel.com](https://vercel.com).
+3. Vercel will auto-detect Next.js and deploy with one click.
+4. Every push to `main` will automatically trigger a production deployment.
+
+For custom domains or environment variables, configure them in your Vercel project dashboard.
+
 ## Notes
 
 - The current homepage is designed as a marketing landing page rather than an authenticated app shell.
