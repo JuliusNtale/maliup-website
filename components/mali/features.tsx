@@ -143,14 +143,26 @@ export function Features() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [activeTab, setActiveTab] = useState<"flow" | "assets" | "business">("flow")
 
+  // Re-observe every time the tab changes so newly rendered cards get revealed
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     )
-    sectionRef.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+    // Small delay so the DOM has rendered the new cards before we observe
+    const timer = setTimeout(() => {
+      sectionRef.current?.querySelectorAll(".reveal").forEach((el) => {
+        // If the section is already scrolled into view, mark visible immediately
+        const rect = el.getBoundingClientRect()
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("visible")
+        } else {
+          observer.observe(el)
+        }
+      })
+    }, 20)
+    return () => { clearTimeout(timer); observer.disconnect() }
+  }, [activeTab])
 
   const modules =
     activeTab === "flow" ? flowModules :
