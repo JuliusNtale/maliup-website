@@ -6,28 +6,44 @@ import {
   Users, BarChart3, Building2, Zap,
   Wallet, PiggyBank, Target, Calendar,
   Receipt, DollarSign, LineChart, CreditCard,
+  Landmark, Car, BarChart2, Briefcase,
+  Home, Layers, Scale, RefreshCw,
 } from "lucide-react"
 
-const personalModules = [
-  { icon: Wallet,      color: "#22C55E", title: "Income Tracking",      desc: "Log your salary, freelance pay, and other income streams. Know exactly what comes in every month." },
-  { icon: Receipt,     color: "#0EA5E9", title: "Personal Expenses",    desc: "Categorise your spending automatically. See where your money goes before it disappears." },
-  { icon: PiggyBank,   color: "#22C55E", title: "Savings Tracker",      desc: "Set savings targets and watch your progress grow. Every deposit feels like a win." },
-  { icon: Target,      color: "#0EA5E9", title: "Financial Goals",      desc: "Save for a new phone, a trip, or school fees. Mali Up keeps your goals front and centre." },
-  { icon: Calendar,    color: "#22C55E", title: "Bills & Subscriptions", desc: "Never miss a bill again. Track due dates and recurring payments in one tidy view." },
-  { icon: DollarSign,  color: "#0EA5E9", title: "Budget Planner",       desc: "Set monthly budgets per category and get nudged before you overspend." },
-  { icon: CreditCard,  color: "#22C55E", title: "Personal Debts",       desc: "Track money you owe or are owed. Keep friendships intact and debts clear." },
-  { icon: LineChart,   color: "#0EA5E9", title: "Net Worth Overview",   desc: "See your full financial picture — assets, liabilities, and where you stand today." },
+/* ── Money Flow modules ─────────────────────────────────────── */
+const flowModules = [
+  { icon: Wallet,      color: "#22C55E", title: "Income Tracking",       desc: "Log salary, freelance pay, rental income, and every shilling that comes in — personal or business." },
+  { icon: Receipt,     color: "#22C55E", title: "Expense Manager",       desc: "Categorise spending automatically. See where your money goes before it disappears." },
+  { icon: PiggyBank,   color: "#22C55E", title: "Savings Tracker",       desc: "Set savings targets and watch your progress grow. Every deposit feels like a win." },
+  { icon: Target,      color: "#22C55E", title: "Financial Goals",       desc: "Save for a phone, a trip, or school fees. Mali Up keeps your goals front and centre." },
+  { icon: Calendar,    color: "#22C55E", title: "Bills & Subscriptions", desc: "Never miss a payment again. Track due dates and recurring costs in one tidy view." },
+  { icon: DollarSign,  color: "#22C55E", title: "Budget Planner",        desc: "Set monthly budgets per category and get nudged before you overspend." },
+  { icon: CreditCard,  color: "#22C55E", title: "Debts & Lending",       desc: "Track money you owe or are owed — to friends, family, or banks. Keep it all clear." },
+  { icon: LineChart,   color: "#22C55E", title: "Cash Flow Insights",    desc: "Visual reports showing your income vs. expenses over time, so trends are impossible to miss." },
 ]
 
+/* ── Assets & Wealth modules ───────────────────────────────── */
+const assetModules = [
+  { icon: Landmark,    color: "#F5A623", title: "Land & Property",       desc: "Register plots, farms, and buildings. Log purchase price, current value, and documents — all in one place." },
+  { icon: Home,        color: "#F5A623", title: "Apartments & Rentals",  desc: "Track your rental units, tenant income, and occupancy. Know your property portfolio at a glance." },
+  { icon: Car,         color: "#F5A623", title: "Vehicles",              desc: "Log cars, motorcycles, and commercial vehicles. Track value, maintenance, and depreciation over time." },
+  { icon: BarChart2,   color: "#F5A623", title: "Stocks & Shares",       desc: "Record your share purchases and current holdings. Monitor portfolio value alongside your other assets." },
+  { icon: Briefcase,   color: "#F5A623", title: "Business Equity",       desc: "Treat your business as an asset. Log ownership stake, valuation, and track equity growth over time." },
+  { icon: Layers,      color: "#F5A623", title: "Other Assets",          desc: "Add equipment, livestock, gold, or any valuable item you own. If it has value, Mali Up tracks it." },
+  { icon: Scale,       color: "#F5A623", title: "Liabilities",           desc: "Track loans, mortgages, and outstanding debts against your assets for a true net worth picture." },
+  { icon: RefreshCw,   color: "#F5A623", title: "Net Worth Dashboard",   desc: "See your total wealth — all assets minus all liabilities — updated live as values change." },
+]
+
+/* ── Business modules ───────────────────────────────────────── */
 const businessModules = [
-  { icon: ShoppingCart, color: "#F5A623", title: "Sales & POS",          desc: "Process sales instantly, manage products, apply discounts, and generate receipts — even offline." },
-  { icon: FileText,     color: "#22C55E", title: "Smart Invoicing",      desc: "Create professional invoices, track payment status, and send reminders to clients automatically." },
-  { icon: Package,      color: "#F5A623", title: "Inventory Control",    desc: "Real-time stock levels, low-stock alerts, multi-location support, and automated reorder triggers." },
-  { icon: TrendingUp,   color: "#22C55E", title: "Finance & Accounting", desc: "Track income, expenses, cash flow, and profit margins with visual charts tailored for SMBs." },
-  { icon: Users,        color: "#F5A623", title: "Customer CRM",         desc: "Build customer profiles, track purchase history, and maintain lasting relationships every day." },
-  { icon: BarChart3,    color: "#22C55E", title: "Business Analytics",   desc: "Data-driven dashboards that surface insights on sales, revenue, and growth trends." },
-  { icon: Building2,    color: "#F5A623", title: "Multi-Business",       desc: "Run multiple businesses from one account. Each gets isolated data and dedicated access." },
-  { icon: Zap,          color: "#22C55E", title: "Works on 3G",          desc: "Engineered for African connectivity — lightweight, fast-loading, functional on mid-range devices." },
+  { icon: ShoppingCart, color: "#0EA5E9", title: "Sales & POS",          desc: "Process sales instantly, manage products, apply discounts, and generate receipts — even offline." },
+  { icon: FileText,     color: "#0EA5E9", title: "Smart Invoicing",      desc: "Create professional invoices, track payment status, and send reminders to clients automatically." },
+  { icon: Package,      color: "#0EA5E9", title: "Inventory Control",    desc: "Real-time stock levels, low-stock alerts, multi-location support, and automated reorder triggers." },
+  { icon: TrendingUp,   color: "#0EA5E9", title: "Finance & Accounting", desc: "Track income, expenses, cash flow, and profit margins with visual charts tailored for SMBs." },
+  { icon: Users,        color: "#0EA5E9", title: "Customer CRM",         desc: "Build customer profiles, track purchase history, and maintain lasting relationships every day." },
+  { icon: BarChart3,    color: "#0EA5E9", title: "Business Analytics",   desc: "Data-driven dashboards that surface insights on sales, revenue, and growth trends." },
+  { icon: Building2,    color: "#0EA5E9", title: "Multi-Business",       desc: "Run multiple businesses from one account. Each gets isolated data and dedicated access." },
+  { icon: Zap,          color: "#0EA5E9", title: "Works on 3G",          desc: "Engineered for African connectivity — lightweight, fast-loading, functional on mid-range devices." },
 ]
 
 function FeatureCard({ mod, index }: { mod: typeof modules[0]; index: number }) {
@@ -97,9 +113,33 @@ function FeatureCard({ mod, index }: { mod: typeof modules[0]; index: number }) 
   )
 }
 
+const tabs = [
+  {
+    key: "flow"     as const,
+    label: "Money Flow",
+    color: "#22C55E",
+    shadow: "rgba(34,197,94,0.3)",
+    desc: "Track every shilling in and out — income, expenses, savings, bills, and budgets.",
+  },
+  {
+    key: "assets"   as const,
+    label: "Assets & Wealth",
+    color: "#F5A623",
+    shadow: "rgba(245,166,35,0.3)",
+    desc: "Register everything you own — land, property, vehicles, stocks, and more.",
+  },
+  {
+    key: "business" as const,
+    label: "Business Tools",
+    color: "#0EA5E9",
+    shadow: "rgba(14,165,233,0.3)",
+    desc: "Sales, invoicing, inventory, CRM, and analytics for your business.",
+  },
+]
+
 export function Features() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [activeTab, setActiveTab] = useState<"personal" | "business">("personal")
+  const [activeTab, setActiveTab] = useState<"flow" | "assets" | "business">("flow")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -110,7 +150,12 @@ export function Features() {
     return () => observer.disconnect()
   }, [])
 
-  const modules = activeTab === "personal" ? personalModules : businessModules
+  const modules =
+    activeTab === "flow" ? flowModules :
+    activeTab === "assets" ? assetModules :
+    businessModules
+
+  const activeTabData = tabs.find((t) => t.key === activeTab)!
 
   return (
     <section
@@ -126,48 +171,44 @@ export function Features() {
         <div className="text-center mb-12 flex flex-col gap-4">
           <div className="reveal inline-flex justify-center">
             <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
-              Everything You Need
+              Three Pillars, One App
             </span>
           </div>
           <h2 id="features-heading" className="reveal font-heading font-bold text-[#0C1B2E] text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
-            One App. Two Complete Worlds.
+            Money Flow. Assets. Business.
           </h2>
           <p className="reveal text-[#0C1B2E]/65 max-w-xl mx-auto leading-relaxed">
-            Whether you&apos;re saving for a goal or running a business — Mali Up has every module you need, all from your phone.
+            Mali Up is the only app that manages your complete financial life — what comes in, what you own, and how your business performs.
           </p>
 
-          {/* Tab switcher */}
+          {/* 3-tab switcher */}
           <div className="reveal inline-flex justify-center mt-2">
-            <div className="flex items-center gap-1 p-1 rounded-2xl" style={{ backgroundColor: "rgba(12,27,46,0.05)", border: "1px solid rgba(12,27,46,0.08)" }}>
-              {(["personal", "business"] as const).map((tab) => (
+            <div className="flex flex-wrap items-center justify-center gap-1 p-1 rounded-2xl" style={{ backgroundColor: "rgba(12,27,46,0.05)", border: "1px solid rgba(12,27,46,0.08)" }}>
+              {tabs.map((tab) => (
                 <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className="px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 capitalize"
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300"
                   style={{
-                    backgroundColor: activeTab === tab ? (tab === "personal" ? "#22C55E" : "#F5A623") : "transparent",
-                    color: activeTab === tab ? "#0C1B2E" : "rgba(12,27,46,0.45)",
-                    boxShadow: activeTab === tab ? `0 4px 16px ${tab === "personal" ? "rgba(34,197,94,0.3)" : "rgba(245,166,35,0.3)"}` : "none",
+                    backgroundColor: activeTab === tab.key ? tab.color : "transparent",
+                    color: activeTab === tab.key ? "#0C1B2E" : "rgba(12,27,46,0.45)",
+                    boxShadow: activeTab === tab.key ? `0 4px 16px ${tab.shadow}` : "none",
                   }}
                 >
-                  {tab === "personal" ? "Personal Finance" : "Business Management"}
+                  {tab.label}
                 </button>
               ))}
             </div>
           </div>
+
+          {/* Active tab description */}
+          <p className="reveal text-[#0C1B2E]/50 text-sm" style={{ color: activeTabData.color }}>
+            {activeTabData.desc}
+          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {modules.map((mod, i) => <FeatureCard key={mod.title} mod={mod} index={i} />)}
-        </div>
-
-        {/* Bottom CTA hint */}
-        <div className="reveal text-center mt-10">
-          <p className="text-[#0C1B2E]/45 text-sm">
-            {activeTab === "personal"
-              ? "Switch to Business Management to see all 8 business modules."
-              : "Switch to Personal Finance to see all 8 personal modules."}
-          </p>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, TrendingUp, Wallet, Building2, Target } from "lucide-react"
+import { ArrowRight, TrendingUp, Wallet, Building2, Target, Landmark, Car, BarChart2 } from "lucide-react"
 import { IPhoneMockup } from "@/components/mali/iphone-mockup"
 import NextImage from "next/image"
 
@@ -78,37 +78,50 @@ function ModePill({ active, label, color, onClick }: { active: boolean; label: s
   )
 }
 
+/* ── Three pillars of Mali Up ─────────────────────────────────── */
 const modeContent = {
-  personal: {
-    badge: "Personal Finance",
-    headline: ["Your Money,", "Finally Under Control."],
-    sub: "Track your salary, savings, bills, and financial goals — all in one place. Mali Up makes personal finance feel effortless.",
+  flow: {
+    badge: "Money Flow",
+    accentColor: "#22C55E",
+    headline: ["Track Every Shilling", "In & Out."],
+    sub: "Income, expenses, invoices, savings goals, bills — see your complete money flow in real time. Personal or business, nothing slips through.",
     cards: [
-      { side: "left" as const, top: "55px",    color: "#22C55E", icon: <Wallet   size={14} style={{ color: "#22C55E" }} />, value: "TSh 450K",  label: "Saved this month", delay: "1.1s" },
-      { side: "right" as const, bottom: "85px", color: "#0EA5E9", icon: <Target   size={14} style={{ color: "#0EA5E9" }} />, value: "72%",       label: "Goal progress",    delay: "1.4s" },
+      { side: "left" as const,  top: "55px",    color: "#22C55E", icon: <Wallet      size={14} style={{ color: "#22C55E" }} />, value: "TSh 1.2M",  label: "Cash in this month", delay: "1.1s" },
+      { side: "right" as const, bottom: "85px", color: "#0EA5E9", icon: <TrendingUp  size={14} style={{ color: "#0EA5E9" }} />, value: "+18%",      label: "Vs last month",      delay: "1.4s" },
+    ],
+  },
+  assets: {
+    badge: "Assets & Wealth",
+    accentColor: "#F5A623",
+    headline: ["Know What You Own.", "Track What It's Worth."],
+    sub: "Log your land, property, vehicles, shares, and equipment. Mali Up tracks the real value of everything you own — and shows your true net worth.",
+    cards: [
+      { side: "left" as const,  top: "55px",    color: "#F5A623", icon: <Landmark   size={14} style={{ color: "#F5A623" }} />, value: "3 Assets",  label: "Land & property",    delay: "1.1s" },
+      { side: "right" as const, bottom: "85px", color: "#0EA5E9", icon: <BarChart2  size={14} style={{ color: "#0EA5E9" }} />, value: "TSh 48M",   label: "Total net worth",    delay: "1.4s" },
     ],
   },
   business: {
-    badge: "Business Management",
-    headline: ["Your Business,", "Run Smarter."],
-    sub: "Manage sales, invoices, inventory, staff, and analytics from your phone. Built for African SMBs moving fast.",
+    badge: "Business Tools",
+    accentColor: "#F5A623",
+    headline: ["Run Your Business", "From Your Pocket."],
+    sub: "Sales, invoices, inventory, customer records, and analytics — every tool your business needs, on the same app that manages your wealth.",
     cards: [
-      { side: "left" as const, top: "55px",    color: "#22C55E", icon: <TrendingUp size={14} style={{ color: "#22C55E" }} />, value: "+34%",     label: "Revenue this month", delay: "1.1s" },
-      { side: "right" as const, bottom: "85px", color: "#F5A623", icon: <Building2 size={14} style={{ color: "#F5A623" }} />, value: "247 Sales", label: "This week",          delay: "1.4s" },
+      { side: "left" as const,  top: "55px",    color: "#22C55E", icon: <TrendingUp size={14} style={{ color: "#22C55E" }} />, value: "+34%",      label: "Revenue this month", delay: "1.1s" },
+      { side: "right" as const, bottom: "85px", color: "#F5A623", icon: <Building2  size={14} style={{ color: "#F5A623" }} />, value: "247 Sales",  label: "This week",          delay: "1.4s" },
     ],
   },
 }
 
 const tickerItems = [
-  "Personal Finance", "Business Tools", "Savings Goals", "Smart Invoicing",
-  "Budget Planner", "Inventory Control", "Bills Tracker", "Analytics",
+  "Money Flow Tracking", "Asset Registry", "Land & Property", "Business Tools",
+  "Net Worth Dashboard", "Stocks & Shares", "Smart Invoicing", "Vehicle Tracker",
   "Works on 3G", "Africa-First",
 ]
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
   const [cursorPos, setCursorPos] = useState({ x: 0.5, y: 0.5 })
-  const [mode, setMode] = useState<"personal" | "business">("personal")
+  const [mode, setMode] = useState<"flow" | "assets" | "business">("flow")
   const content = modeContent[mode]
 
   /* Staggered text entrance */
@@ -148,7 +161,7 @@ export function Hero() {
         style={{
           width: "600px",
           height: "600px",
-          background: mode === "personal"
+          background: mode === "flow"
             ? "radial-gradient(circle, rgba(34,197,94,0.10) 0%, transparent 65%)"
             : "radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%)",
           transform: `translate(${(cursorPos.x - 0.5) * -30}px, ${(cursorPos.y - 0.5) * -20}px)`,
@@ -199,24 +212,25 @@ export function Hero() {
                 priority
               />
               <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
-                Launching Soon · Africa-First
+                Launching Soon · Your Complete Financial Life
               </span>
             </div>
 
-            {/* Mode toggle */}
-            <div data-hero-item className="flex items-center gap-2 self-start p-1 rounded-2xl" style={{ backgroundColor: "rgba(12,27,46,0.04)", border: "1px solid rgba(12,27,46,0.07)" }}>
-              <ModePill active={mode === "personal"} label="Personal" color="#22C55E" onClick={() => setMode("personal")} />
-              <ModePill active={mode === "business"} label="Business" color="#F5A623" onClick={() => setMode("business")} />
+            {/* 3-pillar mode toggle */}
+            <div data-hero-item className="flex items-center gap-1.5 self-start flex-wrap p-1 rounded-2xl" style={{ backgroundColor: "rgba(12,27,46,0.04)", border: "1px solid rgba(12,27,46,0.07)" }}>
+              <ModePill active={mode === "flow"}     label="Money Flow"   color="#22C55E" onClick={() => setMode("flow")}     />
+              <ModePill active={mode === "assets"}   label="Assets"       color="#F5A623" onClick={() => setMode("assets")}   />
+              <ModePill active={mode === "business"} label="Business"     color="#F5A623" onClick={() => setMode("business")} />
             </div>
 
-            {/* Mode badge */}
+            {/* Active pillar badge */}
             <div data-hero-item>
               <span
                 className="text-xs font-bold px-3 py-1 rounded-full"
                 style={{
-                  backgroundColor: mode === "personal" ? "rgba(34,197,94,0.1)" : "rgba(245,166,35,0.1)",
-                  color: mode === "personal" ? "#22C55E" : "#F5A623",
-                  border: `1px solid ${mode === "personal" ? "rgba(34,197,94,0.25)" : "rgba(245,166,35,0.25)"}`,
+                  backgroundColor: `${content.accentColor}12`,
+                  color: content.accentColor,
+                  border: `1px solid ${content.accentColor}30`,
                 }}
               >
                 {content.badge}
@@ -291,7 +305,7 @@ export function Hero() {
             <div
               className="absolute w-80 h-80 rounded-full animate-pulse-ring pointer-events-none"
               style={{
-                background: mode === "personal"
+                background: mode === "flow"
                   ? "radial-gradient(circle, rgba(34,197,94,0.15) 0%, transparent 70%)"
                   : "radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%)",
                 transition: "background 0.8s ease",
@@ -306,7 +320,7 @@ export function Hero() {
                 src="/app-dashboard.jpg"
                 alt="Mali Up app"
                 width={230}
-                accentColor={mode === "personal" ? "#22C55E" : "#F5A623"}
+                accentColor={content.accentColor}
                 animate
               />
 
@@ -326,14 +340,7 @@ export function Hero() {
         aria-hidden="true"
       >
         <div className="animate-ticker flex gap-0 whitespace-nowrap select-none">
-          {[
-            "Personal Finance","Business Tools","Savings Goals","Smart Invoicing",
-            "Budget Planner","Inventory Control","Bills Tracker","Analytics",
-            "Works on 3G","Africa-First",
-            "Personal Finance","Business Tools","Savings Goals","Smart Invoicing",
-            "Budget Planner","Inventory Control","Bills Tracker","Analytics",
-            "Works on 3G","Africa-First",
-          ].map((item, i) => (
+          {[...tickerItems, ...tickerItems].map((item, i) => (
             <span key={i} className="inline-flex items-center gap-3 px-6 text-xs text-[#0C1B2E]/40 uppercase tracking-widest font-semibold">
               <span className="w-1 h-1 rounded-full bg-[#F5A623] inline-block" />
               {item}

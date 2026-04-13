@@ -6,7 +6,7 @@ import NextImage from "next/image"
 
 const perks = [
   "Early access before public launch",
-  "Personal & business modes unlocked",
+  "All 3 pillars unlocked — money, assets, business",
   "Priority support for 6 months",
   "Founder pricing — locked in forever",
 ]
@@ -107,17 +107,17 @@ export function Waitlist() {
           className="reveal font-heading font-bold text-[#0C1B2E] mb-4 text-balance"
           style={{ fontSize: "clamp(2rem,5vw,3.2rem)" }}
         >
-          Your Financial Life Starts{" "}
+          Your Wealth Starts{" "}
           <span
             className="shimmer-btn bg-clip-text"
             style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
           >
-            Here.
+            With Clarity.
           </span>
         </h2>
 
         <p className="reveal text-[#0C1B2E]/65 leading-relaxed mb-10 max-w-xl mx-auto">
-          Join thousands of Africans ready to take control of their money — personal or business. Spots are limited.
+          Join thousands of Africans building a clear picture of their money, assets, and businesses — all in one app. Spots are limited.
         </p>
 
         {/* Perks */}
