@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import {
   ShoppingCart, FileText, Package, TrendingUp,
   Users, BarChart3, Building2, Zap,
@@ -46,7 +46,9 @@ const businessModules = [
   { icon: Zap,          color: "#0EA5E9", title: "Works on 3G",          desc: "Engineered for African connectivity — lightweight, fast-loading, functional on mid-range devices." },
 ]
 
-function FeatureCard({ mod, index }: { mod: typeof modules[0]; index: number }) {
+type Module = { icon: React.ElementType; color: string; title: string; desc: string }
+
+function FeatureCard({ mod, index }: { mod: Module; index: number }) {
   const [hovered, setHovered] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 })
   const cardRef = useRef<HTMLDivElement>(null)
