@@ -29,9 +29,9 @@ export function Nav() {
   }, [])
 
   const links = [
-    { label: "Features",     href: "#features" },
+    { label: "Features",    href: "#features" },
+    { label: "Who It's For", href: "#who-its-for" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Modules",      href: "#modules" },
     { label: "Stats",        href: "#stats" },
   ]
 

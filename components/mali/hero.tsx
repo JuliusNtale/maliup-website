@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Play, TrendingUp, Zap } from "lucide-react"
+import { ArrowRight, TrendingUp, Wallet, Building2, Target } from "lucide-react"
 import { IPhoneMockup } from "@/components/mali/iphone-mockup"
 import NextImage from "next/image"
 
@@ -60,9 +60,56 @@ function FloatCard({
   )
 }
 
+/* Mode pill toggle */
+function ModePill({ active, label, color, onClick }: { active: boolean; label: string; color: string; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer"
+      style={{
+        backgroundColor: active ? color : "transparent",
+        color: active ? "#0C1B2E" : "rgba(12,27,46,0.45)",
+        border: `1.5px solid ${active ? color : "rgba(12,27,46,0.12)"}`,
+        boxShadow: active ? `0 4px 16px ${color}35` : "none",
+      }}
+    >
+      {label}
+    </button>
+  )
+}
+
+const modeContent = {
+  personal: {
+    badge: "Personal Finance",
+    headline: ["Your Money,", "Finally Under Control."],
+    sub: "Track your salary, savings, bills, and financial goals — all in one place. Mali Up makes personal finance feel effortless.",
+    cards: [
+      { side: "left" as const, top: "55px",    color: "#22C55E", icon: <Wallet   size={14} style={{ color: "#22C55E" }} />, value: "TSh 450K",  label: "Saved this month", delay: "1.1s" },
+      { side: "right" as const, bottom: "85px", color: "#0EA5E9", icon: <Target   size={14} style={{ color: "#0EA5E9" }} />, value: "72%",       label: "Goal progress",    delay: "1.4s" },
+    ],
+  },
+  business: {
+    badge: "Business Management",
+    headline: ["Your Business,", "Run Smarter."],
+    sub: "Manage sales, invoices, inventory, staff, and analytics from your phone. Built for African SMBs moving fast.",
+    cards: [
+      { side: "left" as const, top: "55px",    color: "#22C55E", icon: <TrendingUp size={14} style={{ color: "#22C55E" }} />, value: "+34%",     label: "Revenue this month", delay: "1.1s" },
+      { side: "right" as const, bottom: "85px", color: "#F5A623", icon: <Building2 size={14} style={{ color: "#F5A623" }} />, value: "247 Sales", label: "This week",          delay: "1.4s" },
+    ],
+  },
+}
+
+const tickerItems = [
+  "Personal Finance", "Business Tools", "Savings Goals", "Smart Invoicing",
+  "Budget Planner", "Inventory Control", "Bills Tracker", "Analytics",
+  "Works on 3G", "Africa-First",
+]
+
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
   const [cursorPos, setCursorPos] = useState({ x: 0.5, y: 0.5 })
+  const [mode, setMode] = useState<"personal" | "business">("personal")
+  const content = modeContent[mode]
 
   /* Staggered text entrance */
   useEffect(() => {
@@ -101,9 +148,11 @@ export function Hero() {
         style={{
           width: "600px",
           height: "600px",
-          background: "radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%)",
+          background: mode === "personal"
+            ? "radial-gradient(circle, rgba(34,197,94,0.10) 0%, transparent 65%)"
+            : "radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%)",
           transform: `translate(${(cursorPos.x - 0.5) * -30}px, ${(cursorPos.y - 0.5) * -20}px)`,
-          transition: "transform 1.2s cubic-bezier(0.22,1,0.36,1)",
+          transition: "transform 1.2s cubic-bezier(0.22,1,0.36,1), background 0.8s ease",
         }}
         aria-hidden="true"
       />
@@ -131,15 +180,15 @@ export function Hero() {
 
       {/* Spinning decorative rings */}
       <div className="absolute right-16 top-24 w-56 h-56 rounded-full border border-dashed border-[#0C1B2E]/8 animate-spin-slow hidden lg:block" aria-hidden="true" />
-      <div className="absolute right-24 top-32 w-40 h-40 rounded-full border border-dashed border-[#F5A623]/18 animate-spin-slow hidden lg:block" style={{ animationDirection: "reverse", animationDuration: "30s" }} aria-hidden="true" />
+      <div className="absolute right-24 top-32 w-40 h-40 rounded-full border border-dashed border-[#22C55E]/15 animate-spin-slow hidden lg:block" style={{ animationDirection: "reverse", animationDuration: "30s" }} aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto px-6 pt-28 pb-16 w-full" ref={heroRef}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* ── Left: text ── */}
+          {/* Left: text */}
           <div className="flex flex-col gap-6">
 
-            {/* Badge with logo */}
+            {/* Logo + badge */}
             <div data-hero-item className="inline-flex items-center gap-3 self-start">
               <NextImage
                 src="/maliup-logo.png"
@@ -150,7 +199,27 @@ export function Hero() {
                 priority
               />
               <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
-                Launching Soon · Africa-First ERP
+                Launching Soon · Africa-First
+              </span>
+            </div>
+
+            {/* Mode toggle */}
+            <div data-hero-item className="flex items-center gap-2 self-start p-1 rounded-2xl" style={{ backgroundColor: "rgba(12,27,46,0.04)", border: "1px solid rgba(12,27,46,0.07)" }}>
+              <ModePill active={mode === "personal"} label="Personal" color="#22C55E" onClick={() => setMode("personal")} />
+              <ModePill active={mode === "business"} label="Business" color="#F5A623" onClick={() => setMode("business")} />
+            </div>
+
+            {/* Mode badge */}
+            <div data-hero-item>
+              <span
+                className="text-xs font-bold px-3 py-1 rounded-full"
+                style={{
+                  backgroundColor: mode === "personal" ? "rgba(34,197,94,0.1)" : "rgba(245,166,35,0.1)",
+                  color: mode === "personal" ? "#22C55E" : "#F5A623",
+                  border: `1px solid ${mode === "personal" ? "rgba(34,197,94,0.25)" : "rgba(245,166,35,0.25)"}`,
+                }}
+              >
+                {content.badge}
               </span>
             </div>
 
@@ -161,24 +230,23 @@ export function Hero() {
               className="font-heading font-bold text-[#0C1B2E] leading-[1.08] text-balance"
               style={{ fontSize: "clamp(2.4rem, 5vw, 3.8rem)" }}
             >
-              Your Entire Business{" "}
+              {content.headline[0]}
+              <br />
               <span
                 className="shimmer-btn bg-clip-text inline-block"
                 style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
               >
-                In One App.
+                {content.headline[1]}
               </span>
             </h1>
 
             {/* Sub */}
             <p data-hero-item className="text-[#0C1B2E]/70 leading-relaxed text-lg max-w-md">
-              Mali Up is the pocket ERP built for African SMBs — manage sales, invoices,
-              inventory, finance, customers, and analytics from your phone.{" "}
-              <span className="text-[#0C1B2E]/85">Fast on 3G. Ready for tomorrow.</span>
+              {content.sub}
             </p>
 
             {/* Built by */}
-            <p data-hero-item className="text-[#0C1B2E]/45 text-xs tracking-widest uppercase">
+            <p data-hero-item className="text-[#0C1B2E]/40 text-xs tracking-widest uppercase">
               Built by <span className="text-[#F5A623]/70 font-semibold">Neuraltale Technology</span>
             </p>
 
@@ -192,13 +260,11 @@ export function Hero() {
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
-                href="#how-it-works"
-                className="flex items-center gap-2.5 text-[#0C1B2E]/60 hover:text-[#0C1B2E] transition-all duration-200 font-medium text-sm group"
+                href="#features"
+                className="flex items-center gap-2 text-[#0C1B2E]/55 hover:text-[#0C1B2E] transition-all duration-200 font-medium text-sm"
               >
-                <span className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#F5A623] group-hover:bg-[#F5A623]/10 transition-all duration-300">
-                  <Play size={13} className="ml-0.5 text-[#F5A623]" />
-                </span>
-                See how it works
+                See all features
+                <ArrowRight size={14} className="opacity-60" />
               </a>
             </div>
 
@@ -215,50 +281,39 @@ export function Hero() {
                 ))}
               </div>
               <p className="text-[#0C1B2E]/55 text-sm">
-                <span className="text-[#0C1B2E] font-semibold">2,400+</span> businesses on the waitlist
+                <span className="text-[#0C1B2E] font-semibold">2,400+</span> early users joined
               </p>
             </div>
           </div>
 
-          {/* ── Right: floating iPhone ── */}
+          {/* Right: floating iPhone */}
           <div className="relative flex justify-center items-center" aria-hidden="true">
-            {/* Pulsing glow ring */}
             <div
               className="absolute w-80 h-80 rounded-full animate-pulse-ring pointer-events-none"
-              style={{ background: "radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%)" }}
+              style={{
+                background: mode === "personal"
+                  ? "radial-gradient(circle, rgba(34,197,94,0.15) 0%, transparent 70%)"
+                  : "radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%)",
+                transition: "background 0.8s ease",
+              }}
             />
 
             <div
               className="relative animate-float-phone z-10"
-              style={{ filter: "drop-shadow(0 48px 64px rgba(0,0,0,0.55))" }}
+              style={{ filter: "drop-shadow(0 48px 64px rgba(0,0,0,0.50))" }}
             >
               <IPhoneMockup
                 src="/app-dashboard.jpg"
-                alt="Mali Up dashboard"
+                alt="Mali Up app"
                 width={230}
-                accentColor="#F5A623"
+                accentColor={mode === "personal" ? "#22C55E" : "#F5A623"}
                 animate
               />
 
               {/* Floating metric cards */}
-              <FloatCard
-                side="left"
-                top="60px"
-                color="#22C55E"
-                icon={<TrendingUp size={14} style={{ color: "#22C55E" }} />}
-                value="+34%"
-                label="Revenue this month"
-                delay="1.1s"
-              />
-              <FloatCard
-                side="right"
-                bottom="90px"
-                color="#F5A623"
-                icon={<Zap size={14} style={{ color: "#F5A623" }} />}
-                value="247 Sales"
-                label="This week"
-                delay="1.4s"
-              />
+              {content.cards.map((card, i) => (
+                <FloatCard key={i} {...card} />
+              ))}
             </div>
           </div>
         </div>
@@ -272,15 +327,14 @@ export function Hero() {
       >
         <div className="animate-ticker flex gap-0 whitespace-nowrap select-none">
           {[
-            "Sales Management","Smart Invoicing","Inventory Control","Multi-Tenant",
-            "Business Analytics","Customer CRM","Finance Tracking","Africa-First",
-            "Works on 3G","Flutter Powered",
-          ].concat([
-            "Sales Management","Smart Invoicing","Inventory Control","Multi-Tenant",
-            "Business Analytics","Customer CRM","Finance Tracking","Africa-First",
-            "Works on 3G","Flutter Powered",
-          ]).map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-3 px-6 text-xs text-[#0C1B2E]/45 uppercase tracking-widest font-semibold">
+            "Personal Finance","Business Tools","Savings Goals","Smart Invoicing",
+            "Budget Planner","Inventory Control","Bills Tracker","Analytics",
+            "Works on 3G","Africa-First",
+            "Personal Finance","Business Tools","Savings Goals","Smart Invoicing",
+            "Budget Planner","Inventory Control","Bills Tracker","Analytics",
+            "Works on 3G","Africa-First",
+          ].map((item, i) => (
+            <span key={i} className="inline-flex items-center gap-3 px-6 text-xs text-[#0C1B2E]/40 uppercase tracking-widest font-semibold">
               <span className="w-1 h-1 rounded-full bg-[#F5A623] inline-block" />
               {item}
             </span>
