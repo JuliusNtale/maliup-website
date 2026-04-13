@@ -107,17 +107,17 @@ export function Waitlist() {
           className="reveal font-heading font-bold text-[#0C1B2E] mb-4 text-balance"
           style={{ fontSize: "clamp(2rem,5vw,3.2rem)" }}
         >
-          Your Wealth Starts{" "}
+          Your Financial Life,{" "}
           <span
             className="shimmer-btn bg-clip-text"
             style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
           >
-            With Clarity.
+            Finally in One Place.
           </span>
         </h2>
 
         <p className="reveal text-[#0C1B2E]/65 leading-relaxed mb-10 max-w-xl mx-auto">
-          Join thousands of Africans building a clear picture of their money, assets, and businesses — all in one app. Spots are limited.
+          Join thousands of Africans who want to know their money flow, understand what their assets are worth, and manage it all from one app — no matter their income or profession.
         </p>
 
         {/* Perks */}

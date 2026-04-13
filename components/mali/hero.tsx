@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, TrendingUp, Wallet, Building2, Target, Landmark, Car, BarChart2 } from "lucide-react"
+import { ArrowRight, Wallet, Landmark, BarChart2, ChevronRight } from "lucide-react"
 import { IPhoneMockup } from "@/components/mali/iphone-mockup"
 import NextImage from "next/image"
 
@@ -60,69 +60,21 @@ function FloatCard({
   )
 }
 
-/* Mode pill toggle */
-function ModePill({ active, label, color, onClick }: { active: boolean; label: string; color: string; onClick: () => void }) {
-  return (
-    <button
-      onClick={onClick}
-      className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer"
-      style={{
-        backgroundColor: active ? color : "transparent",
-        color: active ? "#0C1B2E" : "rgba(12,27,46,0.45)",
-        border: `1.5px solid ${active ? color : "rgba(12,27,46,0.12)"}`,
-        boxShadow: active ? `0 4px 16px ${color}35` : "none",
-      }}
-    >
-      {label}
-    </button>
-  )
-}
-
-/* ── Three pillars of Mali Up ─────────────────────────────────── */
-const modeContent = {
-  flow: {
-    badge: "Money Flow",
-    accentColor: "#22C55E",
-    headline: ["Track Every Shilling", "In & Out."],
-    sub: "Income, expenses, invoices, savings goals, bills — see your complete money flow in real time. Personal or business, nothing slips through.",
-    cards: [
-      { side: "left" as const,  top: "55px",    color: "#22C55E", icon: <Wallet      size={14} style={{ color: "#22C55E" }} />, value: "TSh 1.2M",  label: "Cash in this month", delay: "1.1s" },
-      { side: "right" as const, bottom: "85px", color: "#0EA5E9", icon: <TrendingUp  size={14} style={{ color: "#0EA5E9" }} />, value: "+18%",      label: "Vs last month",      delay: "1.4s" },
-    ],
-  },
-  assets: {
-    badge: "Assets & Wealth",
-    accentColor: "#F5A623",
-    headline: ["Know What You Own.", "Track What It's Worth."],
-    sub: "Log your land, property, vehicles, shares, and equipment. Mali Up tracks the real value of everything you own — and shows your true net worth.",
-    cards: [
-      { side: "left" as const,  top: "55px",    color: "#F5A623", icon: <Landmark   size={14} style={{ color: "#F5A623" }} />, value: "3 Assets",  label: "Land & property",    delay: "1.1s" },
-      { side: "right" as const, bottom: "85px", color: "#0EA5E9", icon: <BarChart2  size={14} style={{ color: "#0EA5E9" }} />, value: "TSh 48M",   label: "Total net worth",    delay: "1.4s" },
-    ],
-  },
-  business: {
-    badge: "Business Tools",
-    accentColor: "#F5A623",
-    headline: ["Run Your Business", "From Your Pocket."],
-    sub: "Sales, invoices, inventory, customer records, and analytics — every tool your business needs, on the same app that manages your wealth.",
-    cards: [
-      { side: "left" as const,  top: "55px",    color: "#22C55E", icon: <TrendingUp size={14} style={{ color: "#22C55E" }} />, value: "+34%",      label: "Revenue this month", delay: "1.1s" },
-      { side: "right" as const, bottom: "85px", color: "#F5A623", icon: <Building2  size={14} style={{ color: "#F5A623" }} />, value: "247 Sales",  label: "This week",          delay: "1.4s" },
-    ],
-  },
-}
+/* Static floating cards — one for money flow, one for assets */
+const heroCards = [
+  { side: "left"  as const, top: "55px",    color: "#22C55E", icon: <Wallet   size={14} style={{ color: "#22C55E" }} />, value: "TSh 1.2M",  label: "Cash in this month", delay: "1.1s" },
+  { side: "right" as const, bottom: "85px", color: "#F5A623", icon: <Landmark size={14} style={{ color: "#F5A623" }} />, value: "TSh 48M",   label: "Total net worth",    delay: "1.4s" },
+]
 
 const tickerItems = [
-  "Money Flow Tracking", "Asset Registry", "Land & Property", "Business Tools",
-  "Net Worth Dashboard", "Stocks & Shares", "Smart Invoicing", "Vehicle Tracker",
+  "Money Flow Tracking", "Land & Property", "Net Worth Dashboard", "Stocks & Shares",
+  "Vehicle Registry", "Bills Tracker", "Savings Goals", "Business Tools",
   "Works on 3G", "Africa-First",
 ]
 
 export function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
   const [cursorPos, setCursorPos] = useState({ x: 0.5, y: 0.5 })
-  const [mode, setMode] = useState<"flow" | "assets" | "business">("flow")
-  const content = modeContent[mode]
 
   /* Staggered text entrance */
   useEffect(() => {
@@ -161,11 +113,9 @@ export function Hero() {
         style={{
           width: "600px",
           height: "600px",
-          background: mode === "flow"
-            ? "radial-gradient(circle, rgba(34,197,94,0.10) 0%, transparent 65%)"
-            : "radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(245,166,35,0.10) 0%, transparent 65%)",
           transform: `translate(${(cursorPos.x - 0.5) * -30}px, ${(cursorPos.y - 0.5) * -20}px)`,
-          transition: "transform 1.2s cubic-bezier(0.22,1,0.36,1), background 0.8s ease",
+          transition: "transform 1.2s cubic-bezier(0.22,1,0.36,1)",
         }}
         aria-hidden="true"
       />
@@ -212,28 +162,7 @@ export function Hero() {
                 priority
               />
               <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
-                Launching Soon · Your Complete Financial Life
-              </span>
-            </div>
-
-            {/* 3-pillar mode toggle */}
-            <div data-hero-item className="flex items-center gap-1.5 self-start flex-wrap p-1 rounded-2xl" style={{ backgroundColor: "rgba(12,27,46,0.04)", border: "1px solid rgba(12,27,46,0.07)" }}>
-              <ModePill active={mode === "flow"}     label="Money Flow"   color="#22C55E" onClick={() => setMode("flow")}     />
-              <ModePill active={mode === "assets"}   label="Assets"       color="#F5A623" onClick={() => setMode("assets")}   />
-              <ModePill active={mode === "business"} label="Business"     color="#F5A623" onClick={() => setMode("business")} />
-            </div>
-
-            {/* Active pillar badge */}
-            <div data-hero-item>
-              <span
-                className="text-xs font-bold px-3 py-1 rounded-full"
-                style={{
-                  backgroundColor: `${content.accentColor}12`,
-                  color: content.accentColor,
-                  border: `1px solid ${content.accentColor}30`,
-                }}
-              >
-                {content.badge}
+                Launching Soon · Africa-First
               </span>
             </div>
 
@@ -244,20 +173,37 @@ export function Hero() {
               className="font-heading font-bold text-[#0C1B2E] leading-[1.08] text-balance"
               style={{ fontSize: "clamp(2.4rem, 5vw, 3.8rem)" }}
             >
-              {content.headline[0]}
-              <br />
+              Your Money. Your Assets.{" "}
               <span
                 className="shimmer-btn bg-clip-text inline-block"
                 style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
               >
-                {content.headline[1]}
+                Your Full Picture.
               </span>
             </h1>
 
             {/* Sub */}
             <p data-hero-item className="text-[#0C1B2E]/70 leading-relaxed text-lg max-w-md">
-              {content.sub}
+              Mali Up is a financial management app for everyone. Track your money flow — income, expenses, savings, and bills. Register your wealth — land, property, vehicles, and stocks. Run your business. All in one place, regardless of who you are or how you earn.
             </p>
+
+            {/* 3 pillar mini-tags */}
+            <div data-hero-item className="flex flex-wrap gap-2">
+              {[
+                { label: "Money Flow",     color: "#22C55E", icon: <Wallet    size={11} /> },
+                { label: "Assets & Wealth", color: "#F5A623", icon: <Landmark size={11} /> },
+                { label: "Business Tools", color: "#0EA5E9", icon: <BarChart2 size={11} /> },
+              ].map(({ label, color, icon }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full"
+                  style={{ backgroundColor: `${color}12`, color, border: `1px solid ${color}25` }}
+                >
+                  {icon}
+                  {label}
+                </span>
+              ))}
+            </div>
 
             {/* Built by */}
             <p data-hero-item className="text-[#0C1B2E]/40 text-xs tracking-widest uppercase">
@@ -275,10 +221,10 @@ export function Hero() {
               </a>
               <a
                 href="#features"
-                className="flex items-center gap-2 text-[#0C1B2E]/55 hover:text-[#0C1B2E] transition-all duration-200 font-medium text-sm"
+                className="flex items-center gap-1.5 text-[#0C1B2E]/55 hover:text-[#0C1B2E] transition-all duration-200 font-medium text-sm"
               >
-                See all features
-                <ArrowRight size={14} className="opacity-60" />
+                Explore modules
+                <ChevronRight size={14} className="opacity-60" />
               </a>
             </div>
 
@@ -304,12 +250,7 @@ export function Hero() {
           <div className="relative flex justify-center items-center" aria-hidden="true">
             <div
               className="absolute w-80 h-80 rounded-full animate-pulse-ring pointer-events-none"
-              style={{
-                background: mode === "flow"
-                  ? "radial-gradient(circle, rgba(34,197,94,0.15) 0%, transparent 70%)"
-                  : "radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%)",
-                transition: "background 0.8s ease",
-              }}
+              style={{ background: "radial-gradient(circle, rgba(245,166,35,0.14) 0%, transparent 70%)" }}
             />
 
             <div
@@ -318,14 +259,14 @@ export function Hero() {
             >
               <IPhoneMockup
                 src="/app-dashboard.jpg"
-                alt="Mali Up app"
+                alt="Mali Up app showing money flow and asset net worth"
                 width={230}
-                accentColor={content.accentColor}
+                accentColor="#F5A623"
                 animate
               />
 
-              {/* Floating metric cards */}
-              {content.cards.map((card, i) => (
+              {/* Floating metric cards — money flow + net worth */}
+              {heroCards.map((card, i) => (
                 <FloatCard key={i} {...card} />
               ))}
             </div>

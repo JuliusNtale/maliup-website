@@ -18,16 +18,16 @@ const steps = [
     icon: Store,
     color: "#22C55E",
     img: "/app-inventory.jpg",
-    title: "Pick Your Mode",
-    desc: "Start with Personal Finance, Business Management, or both. Set up your profile and you're ready to go.",
+    title: "Add Your Financial Life",
+    desc: "Log your income sources, register your assets — land, vehicle, stocks — and add your business if you have one. Whatever your situation.",
   },
   {
     number: "03",
     icon: TrendingUp,
     color: "#3B82F6",
     img: "/app-analytics.jpg",
-    title: "Take Control",
-    desc: "Track income, manage expenses, hit your goals, and grow your business — all from one intelligent app.",
+    title: "See Your Full Picture",
+    desc: "Watch your money flow, see your net worth update in real time, and make smarter decisions about your financial future.",
   },
 ]
 
@@ -151,10 +151,10 @@ export function HowItWorks() {
             className="reveal font-heading font-bold text-[#0C1B2E] text-balance"
             style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}
           >
-            Ready in Minutes. For Life.
+            Set up in minutes. Use for life.
           </h2>
           <p className="reveal text-[#0C1B2E]/65 max-w-lg mx-auto leading-relaxed">
-            Three steps to take control of your money — personal or business. No steep curve, no IT team needed.
+            No complicated setup, no accountant needed. Three steps and your complete financial life is in your pocket.
           </p>
         </div>
 

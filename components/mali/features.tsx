@@ -119,21 +119,21 @@ const tabs = [
     label: "Money Flow",
     color: "#22C55E",
     shadow: "rgba(34,197,94,0.3)",
-    desc: "Track every shilling in and out — income, expenses, savings, bills, and budgets.",
+    desc: "For everyone — track income, expenses, savings goals, bills, and budgets. Salary, freelance, rental, or any income source.",
   },
   {
     key: "assets"   as const,
     label: "Assets & Wealth",
     color: "#F5A623",
     shadow: "rgba(245,166,35,0.3)",
-    desc: "Register everything you own — land, property, vehicles, stocks, and more.",
+    desc: "For everyone — register land, property, vehicles, stocks, and anything you own. See your real net worth at any time.",
   },
   {
     key: "business" as const,
     label: "Business Tools",
     color: "#0EA5E9",
     shadow: "rgba(14,165,233,0.3)",
-    desc: "Sales, invoicing, inventory, CRM, and analytics for your business.",
+    desc: "If you run a business — add sales, invoicing, inventory, CRM, and analytics on top of your personal financial life.",
   },
 ]
 
@@ -171,14 +171,14 @@ export function Features() {
         <div className="text-center mb-12 flex flex-col gap-4">
           <div className="reveal inline-flex justify-center">
             <span className="glass-amber text-[#F5A623] text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase">
-              Three Pillars, One App
+              Everything in One App
             </span>
           </div>
           <h2 id="features-heading" className="reveal font-heading font-bold text-[#0C1B2E] text-balance" style={{ fontSize: "clamp(1.9rem,4vw,3rem)" }}>
-            Money Flow. Assets. Business.
+            Financial management is not<br />just for businesses.
           </h2>
           <p className="reveal text-[#0C1B2E]/65 max-w-xl mx-auto leading-relaxed">
-            Mali Up is the only app that manages your complete financial life — what comes in, what you own, and how your business performs.
+            Whether you earn a salary, hustle freelance, depend on family support, or run a business — you have money coming in, things you own, and a future to build. Mali Up manages all of it.
           </p>
 
           {/* 3-tab switcher */}
@@ -202,7 +202,7 @@ export function Features() {
           </div>
 
           {/* Active tab description */}
-          <p className="reveal text-[#0C1B2E]/50 text-sm" style={{ color: activeTabData.color }}>
+          <p className="reveal text-sm max-w-lg mx-auto leading-relaxed" style={{ color: "rgba(12,27,46,0.55)" }}>
             {activeTabData.desc}
           </p>
         </div>

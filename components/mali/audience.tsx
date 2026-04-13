@@ -1,36 +1,40 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Briefcase, User, Users, Landmark } from "lucide-react"
+import { Wallet, Landmark, TrendingUp, Users } from "lucide-react"
 
+/* 
+  These are not job titles — they are financial life situations.
+  Anyone can be in any of these, regardless of employment type.
+*/
 const personas = [
+  {
+    icon: Wallet,
+    color: "#22C55E",
+    title: "You have money coming in",
+    desc: "A salary, freelance work, a side hustle, sponsorship, part-time jobs, or seasonal income. No matter the source or stability — Mali Up tracks every shilling in and out.",
+    tags: ["Any income source", "Expense tracking", "Savings goals", "Bill reminders"],
+  },
   {
     icon: Landmark,
     color: "#F5A623",
-    title: "Property & Asset Owners",
-    desc: "You own land, houses, or a vehicle and want to know exactly what your wealth is worth today — not guess.",
-    tags: ["Land Registry", "Property Value", "Vehicle Tracker", "Net Worth"],
+    title: "You own something valuable",
+    desc: "A plot of land, a house, a car, shares, livestock, or equipment. Most people have no idea what their assets are worth. Mali Up gives you that clarity.",
+    tags: ["Land & property", "Vehicles", "Stocks & shares", "Net worth"],
   },
   {
-    icon: Briefcase,
+    icon: TrendingUp,
     color: "#0EA5E9",
-    title: "Business Owners",
-    desc: "Track your business cash flow, log business assets like equipment and stock, and see your real business wealth.",
-    tags: ["Sales & POS", "Business Equity", "Asset Registry", "Analytics"],
-  },
-  {
-    icon: User,
-    color: "#22C55E",
-    title: "Employees & Earners",
-    desc: "Know where your salary goes. Build savings, track your growing assets, and see your true net worth month by month.",
-    tags: ["Income Tracking", "Savings Goals", "Bills Tracker", "Net Worth"],
+    title: "You run a business",
+    desc: "A shop, a salon, an agency, a farm — big or small. Mali Up adds business tools on top of your personal financial life, so both stay in one place.",
+    tags: ["Sales & invoicing", "Inventory", "Customer records", "Analytics"],
   },
   {
     icon: Users,
     color: "#F5A623",
-    title: "Investors & Families",
-    desc: "You have shares, property, or multiple income streams. Consolidate your entire financial picture in one app.",
-    tags: ["Stocks & Shares", "Rental Income", "Debts & Lending", "Portfolio"],
+    title: "You manage for a family",
+    desc: "Household expenses, shared savings, family debts, school fees. Financial management isn't just for individuals — Mali Up works for the whole household.",
+    tags: ["Shared budgets", "Family savings", "Debts & lending", "Bills"],
   },
 ]
 
@@ -134,7 +138,7 @@ export function Audience() {
               className="text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase"
               style={{ backgroundColor: "rgba(245,166,35,0.1)", color: "#F5A623", border: "1px solid rgba(245,166,35,0.25)" }}
             >
-              Built for Real Life
+              Mali Up is for You
             </span>
           </div>
           <h2
@@ -142,16 +146,16 @@ export function Audience() {
             className="reveal font-heading font-bold text-[#0C1B2E] text-balance"
             style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)" }}
           >
-            Know What You Have.{" "}
+            It&apos;s not about what you do.{" "}
             <span
               className="shimmer-btn bg-clip-text"
               style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
             >
-              Own What You Know.
+              It&apos;s about your financial life.
             </span>
           </h2>
           <p className="reveal text-[#0C1B2E]/60 max-w-xl mx-auto leading-relaxed">
-            Whether you own a plot of land, run a business, earn a salary, or hold shares — Mali Up gives you one clear view of everything you have and everything you owe.
+            You don&apos;t need to be a business owner to need financial management. If you have income of any kind, own anything of value, or want to build wealth — this app is for you.
           </p>
         </div>
 
@@ -168,9 +172,9 @@ export function Audience() {
           style={{ background: "linear-gradient(135deg, rgba(12,27,46,0.03) 0%, rgba(245,166,35,0.05) 100%)", border: "1px solid rgba(12,27,46,0.07)" }}
         >
           <div className="flex flex-col gap-2 text-center md:text-left">
-            <p className="font-heading font-bold text-[#0C1B2E] text-xl">Your complete wealth picture, always at hand.</p>
+            <p className="font-heading font-bold text-[#0C1B2E] text-xl">One app. No financial life is too simple — or too complex.</p>
             <p className="text-[#0C1B2E]/55 text-sm">
-              Check your land value in the morning. Review cash flow at lunch. Log a new asset in the evening. Mali Up holds it all.
+              Log your salary. Register your land. Track your shop sales. Mali Up scales with wherever you are in life.
             </p>
           </div>
           <a
